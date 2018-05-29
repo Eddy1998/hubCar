@@ -1,0 +1,3 @@
+ RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ http://iscrizione-eddyalbines145243.codeanyapp.com/hubCar/404.php

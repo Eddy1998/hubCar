@@ -12,7 +12,7 @@
 			return;
 		  }
 		  $.ajax({
-			url: '../data/username.php',
+			url: '../data/userdata.php',
 			type: 'post',
 			data: {
 				'username_check' : 1,
@@ -41,7 +41,7 @@
 			}
 			
 			$.ajax({
-			  url: '../data/username.php',
+			  url: '../data/userdata.php',
 			  type: 'post',
 			  data: {
 				'email_check' : 1,
@@ -78,16 +78,8 @@
     var nazionalita = document.modulo.nazionalita.options[document.modulo.nazionalita.selectedIndex].value;
     var telefono = document.modulo.telefono.value;
     var email = document.modulo.email.value;
-	var patente= document.modulo.patente.value;
-    var scadenzaPatente=document.modulo.scadenzaPatente.value;
-      var arr = scadenzaPatente.split("/");
-      var gg =arr[0];
-      var mm=arr[1];
-      var aaaa=arr[2];
-     var preimpostata = new Date(aaaa, mm-1, gg); 
-    var oggi = new Date();
-     var space= " ";
-    var diff = preimpostata.getTime()  - oggi.getTime();
+	
+   var space= " ";
      
     
  
@@ -237,59 +229,10 @@
         document.modulo.telefono.focus();
         return false;
     }
-	//Effettua il controllo sul campo PATENTE
-    else if ((patente === "") || (patente === "undefined")) {
-        $('.correct').remove();
-      
-          $('#patente').append("<div class='correct' class='row text-center' ><p style='color:red;'>Inserire il numero della tua patente</p></div>");
-        document.modulo.patente.focus();
-        return false;
-    }
-  //Controllo sulla scandenza patente
-    else if (document.modulo.scadenzaPatente.value.substring(2,3) != "/" ||
-             document.modulo.scadenzaPatente.value.substring(5,6) != "/" ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(0,2)) ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(3,5)) ||
-             isNaN(document.modulo.scadenzaPatente.value.substring(6,10))) {
-        $('.correct').remove();
-          $('#scandenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Inserire la Scadenza della Patente in formato gg/mm/aaaa</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-    else if (document.modulo.nascita.value.substring(0,2) > 31) {
-        $('.correct').remove();
-       $('#scadenza').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Impossibile utilizzare un valore superiore a 31 per i giorni</p></div>");
-        
-        document.modulo.scadenzaPatente.select();
-        return false;
-    }
-    else if (document.modulo.scadenzaPatente.value.substring(3,5) > 12) {
-        $('.correct').remove();
-         $('#scadenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Impossibile utilizzare un valore superiore a 12 per i mesi</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-    else if (document.modulo.scadenzaPatente.value.substring(6,10) < 1900) {
-        $('.correct').remove();
-       $('#scadenza').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Impossibile utilizzare un valore inferiore a 1900 per l'anno</p></div>");
-        document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
-     
-    //Se la data preimpostata è già passata
-    else if(diff<0||diff===0){
-        $('.correct').remove();
-      $('#scadenza').append("<div class='correct' class='row text-center'><p id='correct' style='color:red;'>Impossibile inserire patente scaduta</p></div>");
-       document.modulo.scadenzaPatente.value = "";
-        document.modulo.scadenzaPatente.focus();
-        return false;
-    }
+	
    //INVIA IL MODULO
   else {
-        document.modulo.action = "../driver/esito.php";
+        document.modulo.action = "../user/esito.php";
         document.modulo.submit();
     }
 }	
