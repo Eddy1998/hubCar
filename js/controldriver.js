@@ -7,12 +7,12 @@
 		 $('#controllouser').focusout( function(){
 		  var username  = $('#controllouser').val();
 		  
-		  if (username == '') {
+		  if (username === '') {
 			username_state = false;
 			return;
 		  }
 		  $.ajax({
-			url: 'username.php',
+			url: '../hubCar/data/username.php',
 			type: 'post',
 			data: {
 				'username_check' : 1,
@@ -35,13 +35,13 @@
 		  $('#controlemail').focusout( function(){
 			var email = $('#controlemail').val();
 			
-			if (email == '') {
+			if (email === '') {
 				email_state = false;
 				return;
 			}
 			
 			$.ajax({
-			  url: 'username.php',
+			  url: '../hubCar/data/username.php',
 			  type: 'post',
 			  data: {
 				'email_check' : 1,

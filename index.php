@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include 'conn.inc.php';
+  include 'data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
 ?>
   <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <link rel="icon" href="logo/favicon.ico" type="image/png" sizes="16x16">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
     <link rel='stylesheet' href='css/icomoon/style.css'>
     <link rel='shortcut icon' href='icons/favicon.ico'>
     <!-- To support old sizes -->
@@ -75,6 +75,7 @@
                     </a>
                   </li>
                   <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
+                  <li><a class="page-scroll" href="#funzione">Log Out</a></li>
                 </ul>
               </div>
           </div>
@@ -146,7 +147,7 @@
         </div>
         <?php
         }
-        if(!isset($_SESSION["driver"])&&!isset($_SESSION["user"]))
+        if(!isset($_SESSION["driver"])&&!isset($_SESSION["p"]))
         {
           ?>
            <div class="navbar-header page-scroll">
@@ -197,8 +198,8 @@
                 <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
                   <div class="pitch-content">
                     <h1>Parti da</h1>
-                    <select name="partenza">
-                        <option class="wow fadeInDown" > Partenza</option>
+                    <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                        <option ></option>
                       <?php
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
@@ -218,8 +219,8 @@
 
                   <div class="pitch-content">
                     <h1>Arrivi a </h1>
-                    <select name="arrivo">
-                      <option>Arrivo</option>
+                    <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <option></option>
                     <?php
                       $stm=$dbh->prepare('SELECT * FROM province');
                       $stm->execute();
@@ -374,7 +375,7 @@
                     <li>Offri un passaggio</li>
                     <li>Guadagna</li>
                   </ul>
-                  <button class="btn btn-primary btn-action btn-fill">Autista</button>
+                  <a class="btn btn-primary btn-action btn-fill" href="driver/signup.php"  type="button">Autista</a>
                 </div>
               </div>
             </div>
