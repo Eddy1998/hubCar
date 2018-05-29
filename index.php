@@ -1,7 +1,6 @@
 <?php
   session_start();
   include 'conn.inc.php';
-$_SESSION['autista']="3";
   $dbh = new PDO($conn, $user, $pass);
 ?>
   <!DOCTYPE html>
@@ -51,10 +50,10 @@ $_SESSION['autista']="3";
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <?php
-          if(isset($_SESSION["autista"]))
+          if(isset($_SESSION["driver"]))
           {
             $stm = $dbh->prepare("SELECT * FROM Autista WHERE idAutista=:id limit 1");
-            $stm->bindValue(":id", $_SESSION["autista"]);
+            $stm->bindValue(":id", $_SESSION["driver"]);
             $stm->execute();
             if($stm->rowCount()>0)
             {
@@ -102,11 +101,11 @@ $_SESSION['autista']="3";
 
         <?php    
         }
-        if(isset($_SESSION["passeggero"]))    
+        if(isset($_SESSION["user"]))    
         {
           
             $stm = $dbh->prepare("SELECT * FROM Passeggero WHERE idPasseggero=:id limit 1");
-            $stm->bindValue(":id", $_SESSION["autista"]);
+            $stm->bindValue(":id", $_SESSION["user"]);
             $stm->execute();
             if($stm->rowCount()>0)
             {
@@ -147,7 +146,7 @@ $_SESSION['autista']="3";
         </div>
         <?php
         }
-        if(!isset($_SESSION["autista"])&&!isset($_SESSION["passeggero"]))
+        if(!isset($_SESSION["driver"])&&!isset($_SESSION["user"]))
         {
           ?>
            <div class="navbar-header page-scroll">
