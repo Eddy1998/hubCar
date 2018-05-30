@@ -230,7 +230,7 @@ header('location: ../index.php');
                       </legend>
 
 
-                      <input id="password" autocomplete="new-password" type="password" class="form-control" placeholder="Password" name="password" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <input id="password" autocomplete="new-password" type="password" class="form-control" placeholder="Password" name="password" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;" onpaste="return false" oncut="return false" oncopy="return false">
                       <p>
                         Utilizza lettere maiuscole e minuscole, numeri e caratteri speciali come punti(.) o trattimi(- e _).
                       </p>
@@ -251,7 +251,7 @@ header('location: ../index.php');
                     <legend>
                       <h1>Conferma Password *</h1>
                     </legend>
-                    <input autocomplete="new-password" type="password" class="form-control" placeholder="Conferma Password" name="conferma" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                    <input autocomplete="new-password" type="password" class="form-control" placeholder="Conferma Password" name="conferma" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;" onpaste="return false" oncut="return false" oncopy="return false">
 
                   </div>
                 </div>
