@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../data/conn.inc.php';
-if(isset($_SESSION['driver'])||isset($_SESSION['user']))
+if(isset($_SESSION['user']))
 {
 header('location: ../index.php');
 }
@@ -11,7 +11,7 @@ header('location: ../index.php');
 
   <head>
     <meta charset="utf-8">
-    <title>hubCar - Signin</title>
+    <title>hubCar - Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../logo/favicon.ico" type="image/png" sizes="16x16">
 
@@ -70,7 +70,7 @@ function myFunction() {
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="135" height="30" alt="hubCar" /></a>Passeggero </div>
+              <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="135" height="30" alt="hubCar" /></a> </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
@@ -90,10 +90,7 @@ function myFunction() {
 
             <div class="col-md-12">
               <div class="hero-content text-center">
-                <h1 class="wow fadeInUp" data-wow-delay="0.1s">Signin hubCar</h1>
-                <p>
-                  Passeggero
-                </p>
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s">Sign In hubCar</h1>
                 <p class="wow fadeInUp" data-wow-delay="0.2s"> Accedi per utilizzare i servizi</p>
 
               </div>
@@ -128,6 +125,7 @@ function myFunction() {
 
                   <div class="feature-single">
                     <div class="form-group" id="nome">
+                      
                       <legend>
                         <h1>username o email :</h1>
                       </legend>
@@ -216,7 +214,7 @@ function myFunction() {
           <div class="container">
             <div class="col-md-12"> <img src="../logo/logo.png" width="125" height="28" alt="Image" />
               <div class="footer-text">
-                <p> Copyright © 2018 hubCar Tutti i diritti riservati.</p>
+                <p> Copyright © <?php echo date("Y");?> hubCar Tutti i diritti riservati.</p>
               </div>
             </div>
 

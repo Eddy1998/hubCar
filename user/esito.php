@@ -1,6 +1,6 @@
 <?php 
 session_start();
- if(isset($_SESSION['user'])||isset($_SESSION['driver']))
+ if(isset($_SESSION['user']))
  { 
    header('location: ../index.php');
  }
@@ -56,7 +56,7 @@ session_start();
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="115" height="30" alt="hubcarlogo"></a>Passeggero </div>
+            <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="115" height="30" alt="hubcarlogo"></a> </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -84,12 +84,11 @@ session_start();
     $password=$_REQUEST["password"];
     $telefono=$_REQUEST["telefono"];
     $sesso=$_REQUEST['sesso'];
-  
-
+      $dataiscrizione = date("d/m/Y");
   try{
       $dbh = new PDO($conn,$user,$pass);
       $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $query=$dbh->prepare("INSERT INTO Passeggero(cognome,nome,email,username,password,telefono,dataNascita,sesso,nazionalita) VALUES(:cognome,:nome,:email,:username,MD5(:password),:telefono,:dataNascita,:sesso,:nazionalita)");
+       $query=$dbh->prepare("INSERT INTO utente(cognome,nome,email,username,password,sesso,nazionalita,telefono,dataNascita,dataregistrazione) VALUES(:cognome,:nome,:email,:username,MD5(:password),:sesso,:nazionalita,:telefono,:dataNascita,:iscritto)");
       $query->bindValue(":cognome",$cognome);
       $query->bindValue(":nome",$nome);
       $query->bindValue(":email",$email);
@@ -99,6 +98,7 @@ session_start();
       $query->bindValue(":dataNascita",$nascita);
       $query->bindValue(":sesso",$sesso); 
       $query->bindValue(":nazionalita",$nazionalita);
+     $query->bindValue(":iscritto",$dataiscrizione); 
       if(!$query->execute())
       {
         ?>
@@ -185,7 +185,7 @@ session_start();
                     <div class="col-md-6 wow fadeInDown" data-wow-delay="0.2s">
                       <div class="pitch-icon"><a href="signin.php"><i class="ion-key"></i></a>  </div>
                       <div class="pitch-content">
-                        <h1>Signin</h1>
+                        <h1>Sign In</h1>
                       
                       </div>
                     </div>

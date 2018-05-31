@@ -6,14 +6,14 @@ try{
        if(isset($_POST['loginuser'])){
 
        $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("SELECT * FROM Passeggero WHERE (email=:u||username=:u) AND password=MD5(:p);");
+       $stm=$dbh->prepare("SELECT * FROM utente WHERE (email=:u||username=:u) AND password=MD5(:p);");
        $stm->bindValue(":u",$_POST['email']);
        $stm->bindValue(":p",$_POST['password']);
        $stm->execute();
       if($stm->rowCount()>0)
       { 
         $row=$stm->fetch();
-       $_SESSION['user']=$row['idPasseggero'];
+       $_SESSION['user']=$row['idUtente'];
        
       header('location: ../index.php');
       }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../data/conn.inc.php';
-if(isset($_SESSION['driver'])||isset($_SESSION['user']))
+if(isset($_SESSION['user']))
 {
 header('location: ../index.php');
 }
@@ -11,7 +11,7 @@ header('location: ../index.php');
 
   <head>
     <meta charset="utf-8">
-    <title>hubCar - Signup</title>
+    <title>hubCar - Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../logo/favicon.ico" type="image/png" sizes="16x16">
 
@@ -76,11 +76,13 @@ header('location: ../index.php');
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="135" height="30" alt="hubCar" /></a>Passeggero </div>
+              <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="135" height="30" alt="hubCar" /></a></div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
+                 <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
+                 <li><a class="page-scroll" href="../index.php">Cerca un viaggio</a></li>
               </ul>
             </div>
           </div>
@@ -155,7 +157,7 @@ header('location: ../index.php');
                   <div class="feature-single">
                     <div class="form-group" id="sesso">
                       <legend>
-                        <h1>Sesso *</h1>
+                        <h1>Sono *</h1>
                       </legend>
                       <div class="row  text-center">
                         <div class="col-md-3" style="float:left">
@@ -163,11 +165,11 @@ header('location: ../index.php');
                         </div>
                         <div class="col-md-3" style="float:left;">
                           <input type="radio" name="sesso" value="M" checked="checked">
-                          <h2>Maschile</h2>
+                          <h2>Un Uomo</h2>
                         </div>
                         <div class="col-md-3" style="float:right;">
                           <input type="radio" name="sesso" value="F">
-                          <h2>Femminile</h2>
+                          <h2>Una donna</h2>
                         </div>
                          <div class="col-md-3" style="float:right;">
                          
@@ -260,7 +262,7 @@ header('location: ../index.php');
                   <div class="feature-single form-group" id="telefono">
 
                     <legend>
-                      <h1> Numero di telefono *</h1>
+                      <h1> Telefono *</h1>
                     </legend>
                     <input class="form-control" autocomplete="tel-national" type="number" placeholder="Num. di Telefono" name="telefono" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
                   </div>
@@ -316,7 +318,7 @@ header('location: ../index.php');
           </div>
         </div>
 
- <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
+        <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
 
 
       </div>

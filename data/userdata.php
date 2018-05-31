@@ -4,7 +4,7 @@ try{
   $dbh = new PDO($conn, $user, $pass);
   	if (isset($_POST['username_check'])) {
   	$username = $_POST['username'];
-  	$sql =$dbh->prepare("SELECT * FROM Passeggero WHERE username=:user");
+  	$sql =$dbh->prepare("SELECT * FROM utente WHERE username=:user");
   	$sql->bindValue(":user", $username);
 	$sql->execute();
   	if ($sql->rowCount()>0) {
@@ -16,7 +16,7 @@ try{
   }
 	  if (isset($_POST['email_check'])) {
 		$email = $_POST['email'];
-		$sql =$dbh->prepare("SELECT * FROM Passeggero WHERE email=:email");
+		$sql =$dbh->prepare("SELECT * FROM utente WHERE email=:email");
 		$sql->bindValue(":email", $email);
 		$sql->execute();
 		if ($sql->rowCount()>0){
