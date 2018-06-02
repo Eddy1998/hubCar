@@ -75,6 +75,8 @@ function myFunction() {
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
+                 <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
+                <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               </ul>
             </div>
           </div>
@@ -90,7 +92,7 @@ function myFunction() {
 
             <div class="col-md-12">
               <div class="hero-content text-center">
-                <h1 class="wow fadeInUp" data-wow-delay="0.1s">Sign In hubCar</h1>
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s">Sign In</h1>
                 <p class="wow fadeInUp" data-wow-delay="0.2s"> Accedi per utilizzare i servizi</p>
 
               </div>

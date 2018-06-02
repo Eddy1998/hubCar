@@ -115,7 +115,7 @@
         return false;
     }
     else if (document.modulo.nascita.value.substring(0,2) > 31) {
-          $('#correct').remove();
+          $('.correct').remove();
          $('#nascita').append("<div class='correct' class='row text-center' ><p style='color:red;'>Impossibile utilizzare un valore superiore a 31 per i giorni</p></div>");
         document.modulo.nascita.select();
         return false;

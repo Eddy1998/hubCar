@@ -61,6 +61,8 @@ session_start();
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a class="page-scroll" href="../index.php">Home</a></li>
+              <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
+              <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
             </ul>
           </div>
         </div>

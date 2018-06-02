@@ -58,7 +58,7 @@
             ?>
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a></div>
+          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a>Carpooling</div>
       
          
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +68,7 @@
             <li><a class="page-scroll" href="#cerca">Cerca</a></li>
             <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
             <li>
-              <a class="page-scroll" href="#funzione">
+              <a class="page-scroll" href="dashboard/profile.php">
                 <?php echo $row['nome']; ?> </a>
             </li>
              <li><a class="page-scroll" href="user/signout.php">Sign Out</a></li>
@@ -102,7 +102,7 @@
           ?>
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a> </div>
+          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a>Carpooling </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -125,7 +125,7 @@
 
           <div class="col-md-12">
             <div class="hero-content text-center">
-              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Cerca la tua destinazione e Viaggia</h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Cerca la tua destinazione e viaggia</h1>
               <p class="wow fadeInUp" data-wow-delay="0.2s"> In totale comodità</p>
             </div>
           </div>

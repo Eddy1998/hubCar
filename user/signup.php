@@ -82,7 +82,7 @@ header('location: ../index.php');
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
                  <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
-                 <li><a class="page-scroll" href="../index.php">Cerca un viaggio</a></li>
+                 <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               </ul>
             </div>
           </div>
@@ -164,11 +164,11 @@ header('location: ../index.php');
                          
                         </div>
                         <div class="col-md-3" style="float:left;">
-                          <input type="radio" name="sesso" value="M" checked="checked">
+                          <input type="radio" name="sesso" value="Maschile" checked="checked">
                           <h2>Un Uomo</h2>
                         </div>
                         <div class="col-md-3" style="float:right;">
-                          <input type="radio" name="sesso" value="F">
+                          <input type="radio" name="sesso" value="Femminile">
                           <h2>Una donna</h2>
                         </div>
                          <div class="col-md-3" style="float:right;">
