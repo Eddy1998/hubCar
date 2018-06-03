@@ -1,9 +1,9 @@
 <?php
 session_start();
-/*if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
 {
   header("location : ../index.php");
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +64,7 @@ session_start();
               <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
               <li><a class="page-scroll" href="#funzione">Password</a></li>
               <li><a class="page-scroll" href="#funzione">Automobile</a></li>
-              <li><a class="page-scroll" href="#funzione">Sign Out</a></li>
+              <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
 
             </ul>
           </div>
@@ -94,9 +94,13 @@ session_start();
       <div class="app-features text-center" id="cerca">
         <div class="container">
           <form action="modprofile.php" method="POST">
-            <?php if(@$_GET['succes']==1)
+            <?php if(@$_GET['success']==1)
             {?>
                 <h1 class="text-center" style="color:#1eb858;">Dati modificati con successo</h1>
+           <?php }?>
+             <?php if(@$_GET['err']==1)
+            {?>
+                <h1 class="text-center" style="color:#d9534f;">Errore durante la modifica</h1>
            <?php }?>
           
             <div class="col-md-4 features-left">
@@ -108,27 +112,27 @@ session_start();
                 </div>
                 <div class="feature-single">
                   <h1>sesso</h1>
-                  <p style="font-size:15px" id="sesso" name="sesso"> </p>
+                  <p style="font-size:15px" id="sesso" > </p>
                 </div>
                 
                 <div class="feature-single">
                   <h1>Nome:</h1>
-                  <p style="font-size:15px" id="nome" name="nome"> </p>
+                  <p style="font-size:15px" id="nome" > </p>
 
                 </div>
                 <div class="feature-single">
                   <h1>cognome:</h1>
-                  <p style="font-size:15px" id="cognome" name="cognome"> </p>
+                  <p style="font-size:15px" id="cognome" > </p>
 
                 </div>
                 <div class="feature-single">
                   <h1>data nascita</h1>
-                  <p style="font-size:15px" id="nascita" name="nascita"> </p>
+                  <p style="font-size:15px" id="nascita" > </p>
 
                 </div>
                 <div class="feature-single">
                   <h1>Nazionalità</h1>
-                  <p style="font-size:15px" id="nazionalita" name="nazionalita"> </p>
+                  <p style="font-size:15px" id="nazionalita" > </p>
 
                 </div>
               </div>
@@ -143,26 +147,30 @@ session_start();
 
                 </div>
                 <div class="feature-single">
+                  <h1>Username</h1>
+                  <p style="font-size:15px" id="username" ></p>
+                </div>
+                <div class="feature-single">
                   <h1>email</h1>
-                  <p style="font-size:15px" id="email" name="email"></p>
+                  <p style="font-size:15px" id="email" ></p>
                 </div>
 
                 <div class="feature-single">
                   <h1>telefono</h1>
-                  <p style="font-size:15px" id="telefono" name="telefono"> </p>
+                  <p style="font-size:15px" id="telefono" > </p>
                 </div>
 
                 <div class="feature-single">
                   <h1>Patente</h1>
-                  <p style="font-size:15px" id="patente" name="patente"></p>
+                  <p style="font-size:15px" id="patente" ></p>
                 </div>
 
                 <div class="feature-single">
                   <h1>Data Registrazione</h1>
-                  <p style="font-size:15px" id="dataregistrazione" name="data"></p>
+                  <p style="font-size:15px" id="dataregistrazione" ></p>
                 </div>
                  <div class="feature-single">
-                 <button class="btn  btn-action" type="submit"> Modifica </button>
+                 <button class="btn  btn-action" type="submit"> Modifica Profilo</button>
                   <hr>
                  
 
@@ -191,7 +199,20 @@ session_start();
               </div>
               <hr>
             </div>
-
+             <input id="sesso2" type="hidden" name="sesso" />
+                <input id="nome2" type="hidden" name="nome" />
+                <input id="cognome2" type="hidden" name="cognome" />
+                <input id="nascita2" type="hidden" name="nascita" />
+                <input id="nazionalita2" type="hidden" name="nazionalita" />
+                <input id="username2" type="hidden" name="username" />
+              <input id="email2" type="hidden" name="email" />
+                <input id="telefono2" type="hidden" name="telefono"/>
+              <input id="patente2" type="hidden" name="patente"/>
+              <input id="data2" type="hidden" name="data"/>
+              
+               
+                
+               
           </form>
         </div>
       </div>

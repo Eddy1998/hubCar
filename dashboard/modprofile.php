@@ -4,25 +4,17 @@ if(!isset($_SESSION['user']))
 {
   header("location : ../index.php");
 }
-$sesso="fem";
-$nome="Kely";
-$cognome="Gome";
-$nascita="12/12/2012";
-$email="email@email.com";
-$telefono="9864920798";
-$patente="Patente non registrata";
-$data="12/02/2012";
-$nazionalita="Brasile";
-/*
-$sesso=$_POST['sesso'];
-$nome=$_POST['nome'];
-$cognome=$_POST['cognome'];
-$nascita=$_POST['nascita'];
-$email=$_POST['email'];
-$telefono=$_POST['telefono'];
-$patente=$_POST['patente'];
-$data=$_POST['data'];
-$nazionalita=$_POST['nazionalita'];*/
+
+$sesso=$_REQUEST['sesso'];
+$nome=$_REQUEST['nome'];
+$cognome=$_REQUEST['cognome'];
+$nascita=$_REQUEST['nascita'];
+$email=$_REQUEST['email'];
+$username=$_REQUEST['username'];
+$telefono=$_REQUEST['telefono'];
+$patente=$_REQUEST['patente'];
+$data=$_REQUEST['data'];
+$nazionalita=$_REQUEST['nazionalita'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,40 +22,47 @@ $nazionalita=$_POST['nazionalita'];*/
 <head>
   <meta charset="utf-8">
   <title>hubCar - Profilo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../logo/favicon.ico" type="image/png" sizes="16x16">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../logo/favicon.ico" type="image/png" sizes="16x16">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel='stylesheet' href='../css/icomoon/style.css'>
-  <link rel='shortcut icon' href='../icons/favicon.ico'>
-  <!-- To support old sizes -->
-  <link rel='apple-touch-icon' sizes='57x57' href='../logo/logo57.png'>
-  <link rel='apple-touch-icon' sizes='72x72' href='../logo/logo72.png'>
-  <link rel='apple-touch-icon' sizes='114x114' href='../logo/logo114.png'>
-  <link rel='apple-touch-icon' sizes='144x144' href='../logo/logo144.png'>
 
-  <!-- To support new sizes -->
-  <link rel='apple-touch-icon' sizes='60×60' href='../logo/logo60.png'>
-  <link rel='apple-touch-icon' sizes='76×76' href='../logo/logo76.png'>
-  <link rel='apple-touch-icon' sizes='120×120' href='../logo/logo120.png'>
-  <link rel='apple-touch-icon' sizes='152×152' href='../logo/logo152.png'>
-  <link rel='apple-touch-icon' sizes='180×180' href='../logo/logo180.png'>
 
-  <!-- To support Android -->
-  <link rel='icon' sizes='192×192' href='../logo/logo192.png'>
-  <link rel='icon' sizes='128×128' href='../logo/logo128.png'>
 
-  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="../css/animate.css">
-  <!-- Resource style -->
-  <link rel="stylesheet" href="../css/owl.carousel.css">
-  <link rel="stylesheet" href="../css/owl.theme.css">
-  <link rel="stylesheet" href="../css/ionicons.min.css">
-  <!-- Resource style -->
-  <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- To support old sizes -->
+    <link rel='apple-touch-icon' sizes='57x57' href='../logo/logo57.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='../logo/logo72.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='../logo/logo114.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='../logo/logo144.png'>
+
+    <!-- To support new sizes -->
+    <link rel='apple-touch-icon' sizes='60×60' href='../logo/logo60.png'>
+    <link rel='apple-touch-icon' sizes='76×76' href='../logo/logo76.png'>
+    <link rel='apple-touch-icon' sizes='120×120' href='../logo/logo120.png'>
+    <link rel='apple-touch-icon' sizes='152×152' href='../logo/logo152.png'>
+    <link rel='apple-touch-icon' sizes='180×180' href='../logo/logo180.png'>
+
+    <!-- To support Android -->
+    <link rel='icon' sizes='192×192' href='../logo/logo192.png'>
+    <link rel='icon' sizes='128×128' href='../logo/logo128.png'>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Resource style -->
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/owl.theme.css">
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <!-- Resource style -->
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script type="text/javascript" src="../js/dataprofile.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+  
+  
+
+   <script type="text/javascript" src="../js/controlupdate.js"></script>
+ 
 </head>
 
 <body>
@@ -83,7 +82,7 @@ $nazionalita=$_POST['nazionalita'];*/
               <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
               <li><a class="page-scroll" href="#funzione">Password</a></li>
               <li><a class="page-scroll" href="#funzione">Automobile</a></li>
-              <li><a class="page-scroll" href="#funzione">Sign Out</a></li>
+              <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
 
             </ul>
           </div>
@@ -101,7 +100,7 @@ $nazionalita=$_POST['nazionalita'];*/
           <div class="col-md-12">
             <div class="hero-content text-center">
 
-              <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo"></h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo"><?php echo $nome. " ".$cognome?></h1>
 
             </div>
           </div>
@@ -109,10 +108,11 @@ $nazionalita=$_POST['nazionalita'];*/
       </div>
 
       <!-- Client Section -->
-
+ <div id="fh5co-contact" class="container">
+    <form action="#" method="POST" name="modulo">
       <div class="app-features text-center" id="cerca">
         <div class="container">
-          <form action="#" method="POST">
+         
            <div class="col-md-2 features" data-wow-delay="0.5s" syle="float:lefy;">
             </div>
             <div class="col-md-4 features-left">
@@ -123,28 +123,28 @@ $nazionalita=$_POST['nazionalita'];*/
 
                 </div>
                 <div class="feature-single">
-                  <h1>sesso</h1>
+                  <h1>sesso:</h1>
                    <input  type="text" class="form-control" name="sesso" value=" <?php echo $sesso; ?>" readonly>
                   
                 </div>
                 
-                <div class="feature-single">
+                <div class="feature-single" id="nome">
                   <h1>Nome:</h1>
                    <input  type="text" class="form-control" name="nome" value="<?php echo $nome; ?>" placeholder="Nome" >
 
                 </div>
-                <div class="feature-single">
+                <div class="feature-single" id="cognome">
                   <h1>cognome:</h1>
                    <input  type="text" class="form-control" name="cognome" value="<?php echo $cognome; ?>" placeholder="Cognome">
 
                 </div>
-                <div class="feature-single">
-                  <h1>data nascita</h1>
-                 <input  type="text" class="form-control" name="datanascita" value="<?php echo $nascita; ?>" placeholder="Data di Nascita">
+                <div class="feature-single" id="nascita">
+                  <h1>data nascita:</h1>
+                 <input  type="text" class="form-control" name="datanascita" value="<?php echo $nascita; ?>" placeholder="gg/mm/YYYY">
 
                 </div>
                 <div class="feature-single">
-                  <h1>Nazionalità</h1>
+                  <h1>Nazionalità:</h1>
                   <input  type="text" class="form-control" name="nazionalita" value="<?php echo $nazionalita; ?>" placeholder="Nazionalità" readonly>
 
                 </div>
@@ -159,27 +159,32 @@ $nazionalita=$_POST['nazionalita'];*/
                 <div class="feature-single">
 
                 </div>
-                <div class="feature-single">
-                  <h1>email</h1>
-                   <input  type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Email">
+                 <div class="feature-single" id="username">
+                  <h1>username:</h1>
+                   <input  id="controllouser" type="text" class="form-control" name="username" value="<?php echo $username; ?>" placeholder="Username">
+                </div>
+                
+                <div class="feature-single" id="email">
+                  <h1>email:</h1>
+                   <input id="controlemail" type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Email">
+                </div>
+
+                <div class="feature-single" id="numero">
+                  <h1>telefono:</h1>
+                   <input  type="text" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;" name="telefono" value="<?php echo $telefono; ?>" placeholder="Num. di Telefono">
                 </div>
 
                 <div class="feature-single">
-                  <h1>telefono</h1>
-                   <input  type="number" class="form-control" name="telefono" value="<?php echo $telefono; ?>" placeholder="Num. di Telefono">
-                </div>
-
-                <div class="feature-single">
-                  <h1>Patente</h1>
+                  <h1>Patente:</h1>
                   <?php
                   if($patente="Patente non registrata")
                   {?>
-                    <input  type="text" class="form-control" name="telefono" placeholder="Inserisci patente" >
+                    <input  type="text" class="form-control" name="patente" placeholder="Opzionale" >
                   <?php
                   }
                   else {
                     ?>
-                    <input  type="text" class="form-control" name="telefono" value="<?php echo $patente; ?>" placeholder="Patente">
+                    <input  type="text" class="form-control" name="patente" value="<?php echo $patente; ?>" placeholder="Patente">
                  <?php
                   }
                   ?>
@@ -187,30 +192,52 @@ $nazionalita=$_POST['nazionalita'];*/
                 </div>
 
                 <div class="feature-single">
-                  <h1>Data Registrazione</h1>
+                  <h1>Data Registrazione:</h1>
                   <input  type="text" class="form-control" name="sesso" value=" <?php echo $data; ?>" readonly>
                   
                 </div>
-                 <div class="feature-single">
-               <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='profile.php'" class="btn btn-danger btn-action btn-fill">
-                  <hr>
-                  <button class="btn  btn-action "> Salva modifiche </button>
-
-                </div>
+                
 
               </div>
             </div>
             <div class="col-md-2 features" data-wow-delay="0.5s" syle="float:right;">
             </div>
 
-          </form>
+         
         </div>
       </div>
       
+    <div class="app-features text-center" id="cerca">
+        <div class="container">
+           <div class="col-md-4 features-left" data-wow-delay="0.5s" syle="float:lefy;">
+            </div>
+           <div class="col-md-4 features-left" data-wow-delay="0.5s" syle="float:lefy;">
+             <div class="col-md-12 wow fadeInDown" data-wow-delay="0.3s">
+                <div class="feature-single">
+                  <div class="col-md-12">
+                    <div class="col-md-5">
+                       <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='profile.php'" class="btn btn-danger btn-action btn-fill">
+                  <hr>
+                    </div>
+                   
+                    <div class="col-md-7">
+                      
+                       <input type='button' value='Salva modifiche' onClick="Modulo()" class="btn btn-primary btn-action btn-fill">
+                    </div>
+                 
+                  </div>
+               
 
+                </div>
+             </div>
+            </div>
+           <div class="col-md-4 features-left" data-wow-delay="0.5s" syle="float:lefy;">
+            </div>
+          </div>
+      </div>
+ </form>
 
-
-
+      </div>
 
 
 

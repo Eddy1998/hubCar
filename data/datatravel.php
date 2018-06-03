@@ -1,4 +1,6 @@
-<?php //controllo dati se user o email nella tabella autista è già in uso
+<?php 
+session_start();
+
 	include ('conn.inc.php');
 try{
   $dbh = new PDO($conn, $user, $pass);

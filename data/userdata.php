@@ -1,5 +1,6 @@
 <?php //controllo dati se user o email nella tabella passeggero è già in uso
 	include ('conn.inc.php');
+
 try{
   $dbh = new PDO($conn, $user, $pass);
   	if (isset($_POST['username_check'])) {

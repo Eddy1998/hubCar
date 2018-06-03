@@ -326,7 +326,7 @@ p {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
-  border-radius: 44px;
+  border-radius: 4px;
 }
 
 #fh5co-contact .form-control:focus,
@@ -1031,6 +1031,10 @@ textarea.form-control:focus {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  color: black;
+}
+.form-control:focus{
+   color: black;
 }
 
 input[type="password"]:-moz-placeholder,

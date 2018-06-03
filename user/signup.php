@@ -264,7 +264,7 @@ header('location: ../index.php');
                     <legend>
                       <h1> Telefono *</h1>
                     </legend>
-                    <input class="form-control" autocomplete="tel-national" type="number" placeholder="Num. di Telefono" name="telefono" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                    <input  class="form-control" autocomplete="tel-national" type="number" placeholder="Num. di Telefono" name="telefono" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
                   </div>
 
                 </div>

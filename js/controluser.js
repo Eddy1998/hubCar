@@ -155,6 +155,12 @@
         document.modulo.user.focus();
         return false;
     }
+       else if ((user.length)<4)  {
+         $('.correct').remove();
+       $('#username').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Username: minimo 4 caratteri</p></div>");
+        document.modulo.user.focus();
+        return false;
+    }
     //Effettua il controllo sul campo PASSWORD
     else if ((password === "") || (password === "undefined")) {
         $('.correct').remove();
