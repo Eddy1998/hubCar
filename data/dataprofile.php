@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['user']="5";
 //controllo dati se user o email nella tabella passeggero è già in uso
 	include ('conn.inc.php');
 try{
