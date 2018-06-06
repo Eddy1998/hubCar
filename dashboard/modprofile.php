@@ -169,7 +169,7 @@ $nazionalita=$_REQUEST['nazionalita'];
                    <input id="controlemail" type="text" class="form-control" name="email" value="<?php echo $email; ?>" placeholder="Email">
                 </div>
 
-                <div class="feature-single" id="numero">
+                <div class="feature-single" id="telefono">
                   <h1>telefono:</h1>
                    <input  type="text" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;" name="telefono" value="<?php echo $telefono; ?>" placeholder="Num. di Telefono">
                 </div>
@@ -222,7 +222,7 @@ $nazionalita=$_REQUEST['nazionalita'];
                    
                     <div class="col-md-7">
                       
-                       <input type='button' value='Salva modifiche' onClick="Modulo()" class="btn btn-primary btn-action btn-fill">
+                       <input type='button' value='Salva dati' onClick="Modulo()" class="btn btn-primary btn-action btn-fill">
                     </div>
                  
                   </div>

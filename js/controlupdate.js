@@ -177,7 +177,7 @@
         document.modulo.telefono.focus();
         return false;
     }
-	 else if (telefono.match(/^[a-zA-Z]+/)) {
+	 else if (telefono.match(/[a-z]/i)) {
           $('.correct').remove();
       $('#telefono').append("<div class='correct' class='row text-center' ><p id='correct' style='color:red;'>Non deve contenere lettere</p></div>");
         document.modulo.telefono.value = "";

@@ -55,11 +55,11 @@ if(!isset($_SESSION['user']))
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand page-scroll" href="#main"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a>Profilo </div>
+            <a class="navbar-brand page-scroll" href="../index.php"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a>Profilo </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-
+               <li><a class="page-scroll" href="../index.php">Home</a></li>
               <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
               <li><a class="page-scroll" href="#funzione">Password</a></li>
@@ -96,11 +96,13 @@ if(!isset($_SESSION['user']))
           <form action="modprofile.php" method="POST">
             <?php if(@$_GET['success']==1)
             {?>
-                <h1 class="text-center" style="color:#1eb858;">Dati modificati con successo</h1>
+                <h1 id="successo" class="text-center" style="color:#1eb858;">Dati modificati con successo</h1>
+            <script>setTimeout(function() { $("#successo").hide(); }, 5000);</script>
            <?php }?>
              <?php if(@$_GET['err']==1)
             {?>
-                <h1 class="text-center" style="color:#d9534f;">Errore durante la modifica</h1>
+                <h1 id="errore" class="text-center" style="color:#d9534f;">Errore durante la modifica</h1>
+                <script>setTimeout(function() { $("#errore").hide(); }, 5000);</script>
            <?php }?>
           
             <div class="col-md-4 features-left">
@@ -193,7 +195,7 @@ if(!isset($_SESSION['user']))
                 
                 <!----->
                 <div class="feature-single">
-                  <button class="btn btn-primary btn-action btn-fill">Modifica Auto</button>
+                 <a href="automobile.php" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Modifica Auto</a>
 
                 </div>
               </div>

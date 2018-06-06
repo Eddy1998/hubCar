@@ -1,32 +1,41 @@
-<?php
-if(isset($_POST['name']))
-{
-  $var= $_POST['prova'];
-  echo $var;
-}
-?>
+
 <!DOCTYPE html>
 <html>
   <head>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
 $(document).ready(function(){
+  $('#ciao').hide();
+  $('#prendi').click(function(){
+     
+        $('#ciao').toggle();
+        $('#prend').toggle();
+        $('#ciao').val($('#prend').text());
+        if($('#prendi').val()=="change")
+          {
+            
+            $('#prendi').val("Salva");
+          }
+        else 
+           
+        {$('#prendi').val("change");
+        
+        }
 
-  $("#ciao").val("stampo");
-  
  
-                            });
+});
+});
 </script>
   </head>
 
 <body>
-  <form action="#" method="POST">
-    <input id="ciao" name="prova">
+  
+    <input id="ciao" name="prova" >
       
     </input>
-    <button type="submit" name="name">
-      clik
-    </button>
-  </form>
+    <p id="prend">Valordgdre</p>
+    <input type="button" id="prendi" name="name" value="change" >
+   
+    </input> 
 </body>
 </html>

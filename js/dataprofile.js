@@ -1,7 +1,7 @@
 $(document).ready(function(){
  
 		$.post( "../data/dataprofile.php", function(response ) {
-        var profilo = response.user.nome+" "+response.user.cognome;
+        
         var nome =response.user.nome;
       var cognome= response.user.cognome;
       var sesso =response.user.sesso;
@@ -13,7 +13,7 @@ $(document).ready(function(){
       var patente;
       var automobile;
       var nazionalita= response.user.nazionalita;
-       $("#profilo").append(profilo);
+       $("#profilo").append(nome);
 				 $("#nome").append(nome);
          $("#cognome").append(cognome);
       $('#sesso').append(sesso);

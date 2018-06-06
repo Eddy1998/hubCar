@@ -69,7 +69,7 @@
             <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
             <li>
               <a class="page-scroll" href="dashboard/profile.php">
-                <?php echo $row['nome']; ?> </a>
+                Profilo </a>
             </li>
              <li><a class="page-scroll" href="user/signout.php">Sign Out</a></li>
           </ul>
@@ -87,7 +87,7 @@
           <div class="col-md-12">
             <div class="hero-content text-center">
               <h1 class="wow fadeInUp" data-wow-delay="0.1s">Ciao
-                <?php echo $row['nome']." ".$row['cognome'];?> </h1>
+                <?php echo $row['nome'];?> </h1>
               <p class="wow fadeInUp" data-wow-delay="0.2s">Aggiungi una destinazione e viaggia</p>
 
             </div>
