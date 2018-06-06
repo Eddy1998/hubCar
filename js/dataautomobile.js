@@ -60,7 +60,33 @@ $(document).ready(function(){
             //manda a iudautomobile.php con nuovi dati
           });
           $('#delete-car').click(function(){
-            //elimina riga nel db della macchina, quindi manda a iudautomobile.php
+             if( confirm("Sei sicuro di eliminare l'automobile?"))
+               {
+
+                  $.ajax({
+                    url: '../dashboard/iudautomobile.php',
+                    type: 'post',
+                    data: {
+                      'delete-car' : 1                   
+                    },
+                    success: function(ritorno){
+                      if(ritorno=='eseguito')
+                        {
+                            location.reload();
+                          $('#profilo').append('eseguito');
+                        }
+                      else if(ritorno=='errore-delete')
+                        {
+                           $('#profilo').append('NONeseguito');
+                        }
+                       else if(ritorno=='errore-db')
+                        {
+                           $('#profilo').append('db error');
+                        }
+                    }
+                    
+                    });
+               }
           });
         }
  

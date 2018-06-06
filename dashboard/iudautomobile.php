@@ -42,8 +42,23 @@ try{
            header('location: signin.php?err=1');
          }
        }
+    if(isset($_POST['delete-car'])){
+        $id = $_SESSION['user'];
+       $dbh = new PDO($conn,$user,$pass);
+       $stm=$dbh->prepare("DELETE FROM auto WHERE idAutista=:id;");
+       $stm->bindValue(":id",$id);
+       if($stm->execute())
+       {
+          echo "eseguito";
+       }
+         else
+         {
+           echo "errore-delete";
+         }
+       }
   } 
   catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
+    echo "errore-db";
+    
   }
 ?>

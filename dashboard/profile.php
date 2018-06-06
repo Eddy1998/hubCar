@@ -63,7 +63,7 @@ if(!isset($_SESSION['user']))
               <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
               <li><a class="page-scroll" href="#funzione">Password</a></li>
-              <li><a class="page-scroll" href="#funzione">Automobile</a></li>
+              <li><a class="page-scroll" href="automobile.php">Automobile</a></li>
               <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
 
             </ul>

@@ -183,7 +183,7 @@ session_start();
                         </div>
                         
                            <div  class="col-md-4">
-                            <div id="update-car" class="pitch-icon" ><a><i class="ion-ios-checkmark-empty" ></i></a> </div>
+                            <div id="update-car" class="pitch-icon" ><a ><i class="ion-ios-checkmark-empty" ></i></a> </div>
                         </div>
                         <div  class="col-md-4">
                             <div id="cancel-update" class="pitch-icon" style="background:#d9534f;"><a ><i class="ion-ios-close-empty" ></i></a> </div>
@@ -191,7 +191,7 @@ session_start();
                            
 
                         <div  class="col-md-4">
-                          <div id="delete-car" class="pitch-icon" style="background:#d9534f;"><a><i class="ion-trash-b" ></i></a> </div>
+                          <div name="delete-car" id="delete-car" class="pitch-icon" style="background:#d9534f;"><a><i class="ion-trash-b" ></i></a> </div>
 
 
                         </div>
