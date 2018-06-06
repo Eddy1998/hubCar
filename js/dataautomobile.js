@@ -19,8 +19,9 @@ $(document).ready(function(){
               $('#insert-auto,#cancel-add,#add-car,#autodata,.lab,#marca,#modello,#anno,#targa,#mex').toggle();
              
            });
-          $('#insert-auto').click(function(){
-            //controlli dati inseriti e manda a insert iudautomobile.php
+           $('#insert-auto').click(function(){
+                 document.modulo.action = "../dashboard/createcar.php";
+                 document.modulo.submit();
           });
           $('#cancel-add').click(function(){
             $('#insert-auto,#cancel-add,#add-car,#autodata,.lab,#marca,#modello,#anno,#targa,#mex').toggle();
@@ -62,32 +63,15 @@ $(document).ready(function(){
           $('#delete-car').click(function(){
              if( confirm("Sei sicuro di eliminare l'automobile?"))
                {
-
-                  $.ajax({
-                    url: '../dashboard/iudautomobile.php',
-                    type: 'post',
-                    data: {
-                      'delete-car' : 1                   
-                    },
-                    success: function(ritorno){
-                      if(ritorno=='eseguito')
-                        {
-                            location.reload();
-                          $('#profilo').append('eseguito');
-                        }
-                      else if(ritorno=='errore-delete')
-                        {
-                           $('#profilo').append('NONeseguito');
-                        }
-                       else if(ritorno=='errore-db')
-                        {
-                           $('#profilo').append('db error');
-                        }
-                    }
-                    
-                    });
+                 document.modulo.action = "../dashboard/deletecar.php";
+                 document.modulo.submit();
                }
           });
+          $('#update-car').click(function(){
+                 document.modulo.action = "../dashboard/updatecar.php";
+                 document.modulo.submit();
+          });
+          
         }
  
 			},"json");

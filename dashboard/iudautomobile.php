@@ -3,10 +3,11 @@ session_start();
 	include ('../data/conn.inc.php');
 try{
        
-       if(isset($_POST['insertauto'])){
-
+       if(isset($_POST['insertauto']))
+       {
+          
        $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("insert * FROM auot WHERE (email=:u||username=:u) AND password=MD5(:p);");
+       $stm=$dbh->prepare("insert insert into auto(targa,marca,modello,idAutista,anno) values (:targa,:marca,:modello,:idAutista,:anno);");
        $stm->bindValue(":u",$_POST['email']);
        $stm->bindValue(":p",$_POST['password']);
        $stm->execute();

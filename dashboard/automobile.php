@@ -94,6 +94,22 @@ session_start();
                 <p>
                   Puoi aggiungere solo un'automobile, puoi modificarlo in futuro
                 </p>
+                <?php if(@$_GET['success']==1)
+            {?>
+                <h2 id="true" style="color:green" class="wow fadeInUp" data-wow-delay="0.1s">
+                  Operazione eseguita con successo
+                </h2>
+                 <script>setTimeout(function() { $("#true").hide(); }, 5000);</script>
+           <?php }?>
+             <?php if(@$_GET['err']==1)
+            {?>
+                <h2 id="false" style="color:red" class="wow fadeInUp" data-wow-delay="0.1s">
+                  Errore durante l'operazione
+                </h2>
+                 <script>setTimeout(function() { $("#false").hide(); }, 5000);</script>
+           <?php }?>
+               
+                
               </div>
             </div>
           </div>
@@ -192,47 +208,17 @@ session_start();
 
                         <div  class="col-md-4">
                           <div name="delete-car" id="delete-car" class="pitch-icon" style="background:#d9534f;"><a><i class="ion-trash-b" ></i></a> </div>
-
-
                         </div>
-                  
-                          
-
-
                       </div>
-
-
-
                     </div>
-
                   </div>
-
-
                 </div>
                 <hr>
-               
-
-
-
-
-
-
-
-
               </div>
             </div>
-
-
           </form>
 
         </div>
-
-
-
-
-
-        <!-- Footer Section -->
-
       </div>
 
       <!-- Scroll To Top -->
