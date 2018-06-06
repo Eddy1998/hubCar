@@ -1377,7 +1377,7 @@ button.btn.active:focus {
 
 .pitch-intro h1 {
   font-size: 37px;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -2px;
   color: #454545;
@@ -1629,7 +1629,7 @@ button.btn.active:focus {
 
 .app-features h1 {
   font-size: 37px;
-  font-weight: 900;
+  font-weight: 500;
   margin: 0 0 10px 0;
 }
 

@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('#add-car, #insert-auto, #cancel-add,#autodata, #marca, #pmarca, #modello, #pmodello, #anno, #panno, #targa, #ptarga, #config-option, #update-car, #cancel-update, #delete-car, .lab').hide();
-		$.post( "../data/dataprofile.php", function(response ) {
+
+  $.post( "../data/dataprofile.php", function(response ) {
         
         var nome =response.user.nome;
      
@@ -20,8 +21,70 @@ $(document).ready(function(){
              
            });
            $('#insert-auto').click(function(){
-                 document.modulo.action = "../dashboard/createcar.php";
+             	      var marca=document.modulo.marca.value;
+                    var modello= document.modulo.modello.value;
+                    var anno= document.modulo.anno.value;
+                    var targa=document.modulo.targa.value;
+                
+                 if ((marca === "") || (marca === "undefined")) {
+                  $('.correct').remove();
+                   $('#marcamsg').append("<p class='correct' style='color:red;'>Inserire una marca di auto</p>");
+
+                    document.modulo.marca.focus();
+                   return false;
+                   }
+             else if((modello === "") || (modello === "undefined")) {
+                  $('.correct').remove();
+                   $('#modellomsg').append("<p class='correct' style='color:red;'>Inserire un modello</p>");
+
+                    document.modulo.modello.focus();
+                   return false;
+                   }
+             else if((anno === "") || (anno === "undefined")) {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Inserire anno dell'auto</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+                   }
+             else if(anno.length>4||anno.length<4)
+               {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Inserire anno correttamente</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+               }
+                else if(anno.match(/[a-z]/i))
+                  {
+                      $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Anno non deve contenere lettere</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+                  }
+             else if(document.modulo.anno.value.substring(0,4)<1900)
+               {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Impossibile utilizzare un valore inferiore a 1900 per l'anno</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+               }
+             else if((targa === "") || (targa === "undefined")) {
+                  $('.correct').remove();
+                   $('#targamsg').append("<p class='correct' style='color:red;'>Inserire la targa dell'auto</p>");
+
+                    document.modulo.targa.focus();
+                   return false;
+                   }
+             else
+             {
+               document.modulo.action = "../dashboard/createcar.php";
                  document.modulo.submit();
+             }
+             
+                 
           });
           $('#cancel-add').click(function(){
             $('#insert-auto,#cancel-add,#add-car,#autodata,.lab,#marca,#modello,#anno,#targa,#mex').toggle();
@@ -57,9 +120,7 @@ $(document).ready(function(){
                 $('#marca,#pmarca,#modello,#pmodello,#anno,#panno,#targa,#ptarga,#config-option,#update-car,#cancel-update,#delete-car').toggle();
                 
               });
-          $('#update-car').click(function(){
-            //manda a iudautomobile.php con nuovi dati
-          });
+         
           $('#delete-car').click(function(){
              if( confirm("Sei sicuro di eliminare l'automobile?"))
                {
@@ -68,8 +129,70 @@ $(document).ready(function(){
                }
           });
           $('#update-car').click(function(){
+                var marca=document.modulo.marca.value;
+                    var modello= document.modulo.modello.value;
+                    var anno= document.modulo.anno.value;
+                    var targa=document.modulo.targa.value;
+                
+                 if ((marca === "") || (marca === "undefined")) {
+                  $('.correct').remove();
+                   $('#marcamsg').append("<p class='correct' style='color:red;'>Inserire una marca di auto</p>");
+
+                    document.modulo.marca.focus();
+                   return false;
+                   }
+             else if((modello === "") || (modello === "undefined")) {
+                  $('.correct').remove();
+                   $('#modellomsg').append("<p class='correct' style='color:red;'>Inserire un modello</p>");
+
+                    document.modulo.modello.focus();
+                   return false;
+                   }
+             else if((anno === "") || (anno === "undefined")) {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Inserire anno dell'auto</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+                   }
+             else if(anno.length>4||anno.length<4)
+               {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Inserire anno correttamente</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+               }
+                else if(anno.match(/[a-z]/i))
+                  {
+                      $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Anno non deve contenere lettere</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+                  }
+             else if(document.modulo.anno.value.substring(0,4)<1900)
+               {
+                  $('.correct').remove();
+                   $('#annomsg').append("<p class='correct' style='color:red;'>Impossibile utilizzare un valore inferiore a 1900 per l'anno</p>");
+
+                    document.modulo.anno.focus();
+                   return false;
+               }
+             else if((targa === "") || (targa === "undefined")) {
+                  $('.correct').remove();
+                   $('#targamsg').append("<p class='correct' style='color:red;'>Inserire la targa dell'auto</p>");
+
+                    document.modulo.targa.focus();
+                   return false;
+                   }
+             else
+             {
+            
+            
                  document.modulo.action = "../dashboard/updatecar.php";
                  document.modulo.submit();
+             }
           });
           
         }

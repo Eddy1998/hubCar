@@ -151,7 +151,7 @@ session_start();
                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
-                    <div class="feature-single">
+                    <div id="marcamsg" class="feature-single">
                       <h1 class="lab">Marca:</h1>
                       <input id="marca" type="text" class="form-control" name="marca" value="">
                       <p id="pmarca" style="font-size: 25px;"></p>
@@ -162,17 +162,18 @@ session_start();
                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
-                    <div class="feature-single">
+                    <div id="modellomsg" class="feature-single">
                       <h1 class="lab">Modello:</h1>
                       <input id="modello" type="text" class="form-control" name="modello" value="">
                         <p id="pmodello" style="font-size: 25px;"></p>
+                       
                     </div>
 
                   </div>
                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
-                    <div class="feature-single">
+                    <div id="annomsg" class="feature-single">
                       <h1 class="lab">Anno:</h1>
                       <input id="anno" type="text" class="form-control" name="anno" value="" >
                          <p id="panno" style="font-size: 25px;"></p>
@@ -182,7 +183,7 @@ session_start();
                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
-                    <div class="feature-single">
+                    <div id="targamsg" class="feature-single">
                       <h1 class="lab">Targa:</h1>
                       <input id="targa" type="text" class="form-control" name="targa" value="" >
                         <p id="ptarga" style="font-size: 25px;"></p>
