@@ -46,15 +46,9 @@
            
         <?php    
         
-        if(isset($_SESSION["user"]))    
+        if(isset($_SESSION["user"])&&isset($_SESSION['username']))    
         { 
-            $stm = $dbh->prepare("SELECT * FROM utente WHERE idUtente=:id");
-            $stm->bindValue(":id", $_SESSION["user"]);
-            $stm->execute();
-            if($stm->rowCount()>0)
-            {
-              $row = $stm->fetch();
-            }
+           
             ?>
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -87,7 +81,7 @@
           <div class="col-md-12">
             <div class="hero-content text-center">
               <h1 class="wow fadeInUp" data-wow-delay="0.1s">Ciao
-                <?php echo $row['nome'];?> </h1>
+                <?php echo $_SESSION['username'];?> </h1>
               <p class="wow fadeInUp" data-wow-delay="0.2s">Aggiungi una destinazione e viaggia</p>
 
             </div>
@@ -144,10 +138,10 @@
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
                     <div class="pitch-content">
                       <h1>Parto da</h1>
-                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                         <option ></option>
                       <?php
-                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
                       $stm->execute();
                       if($stm->rowCount()>0)
                       {
@@ -165,10 +159,10 @@
 
                     <div class="pitch-content">
                       <h1>Arrivo a </h1>
-                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;-webkit-appearance: none;">
                       <option></option>
                     <?php
-                      $stm=$dbh->prepare('SELECT * FROM province');
+                      $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
                       $stm->execute();
                       if($stm->rowCount()>0)
                       {

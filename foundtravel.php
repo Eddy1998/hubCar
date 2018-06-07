@@ -95,7 +95,7 @@ $dbh = new PDO($conn,$user,$pass);
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
                     <div class="pitch-content">
                       <h1>Partenza da</h1>
-                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                         <option ></option>
                       <?php
                       $stm=$dbh->prepare('SELECT * FROM province');
@@ -116,7 +116,7 @@ $dbh = new PDO($conn,$user,$pass);
 
                     <div class="pitch-content">
                       <h1>Arrivo a </h1>
-                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                       <option></option>
                     <?php
                       $stm=$dbh->prepare('SELECT * FROM province');

@@ -36,7 +36,7 @@ header('location: ../index.php');
     <link rel='icon' sizes='128×128' href='../logo/logo128.png'>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700,900" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/animate.css">
     <!-- Resource style -->
     <link rel="stylesheet" href="../css/owl.carousel.css">
@@ -58,6 +58,7 @@ header('location: ../index.php');
         padding: 2px;
         width: auto;
         height: 8px;
+        margin-top:10px;
       }
 
       .radius {
@@ -81,8 +82,8 @@ header('location: ../index.php');
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
-                 <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
-                 <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
+                <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
+                <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               </ul>
             </div>
           </div>
@@ -161,19 +162,28 @@ header('location: ../index.php');
                       </legend>
                       <div class="row  text-center">
                         <div class="col-md-3" style="float:left">
-                         
+
+
                         </div>
                         <div class="col-md-3" style="float:left;">
+
                           <input type="radio" name="sesso" value="Maschile" checked="checked">
-                          <h2>Un Uomo</h2>
+                          <p>Uomo</p>
+
+
                         </div>
                         <div class="col-md-3" style="float:right;">
+
+
                           <input type="radio" name="sesso" value="Femminile">
-                          <h2>Una donna</h2>
+                          <p>Donna</p>
+
                         </div>
-                         <div class="col-md-3" style="float:right;">
-                         
+                        <div class="col-md-3" style="float:right;">
+
                         </div>
+                      </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -184,13 +194,12 @@ header('location: ../index.php');
                       <legend>
                         <h1>Nazionalità *</h1>
                       </legend>
-                      <select autocomplete="country-name" class="form-control" name="nazionalita" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                      <select autocomplete="country-name" class="form-control" name="nazionalita" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;-webkit-appearance: none;">
                       <option></option>
                     <?php 
                           $dbh = new PDO($conn,$user,$pass);
                           $stm=$dbh->prepare('SELECT nome_stati FROM stati');
                           $stm->execute();
-
                           while ($row=$stm->fetch()) {
                               echo "<option value='".$row['nome_stati']."'>" . $row['nome_stati'] ."</option>";
                           }
@@ -230,18 +239,19 @@ header('location: ../index.php');
                       <legend>
                         <h1>Password *</h1>
                       </legend>
-
+                  
 
                       <input id="password" autocomplete="new-password" type="password" class="form-control" placeholder="Password" name="password" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;" onpaste="return false" oncut="return false" oncopy="return false">
+                       <div id="result" class="radius">
+                      <div id="bar" class="radius"></div>
+                    </div>
                       <p>
                         Utilizza lettere maiuscole e minuscole, numeri e caratteri speciali come punti(.) o trattimi(- e _).
                       </p>
 
                     </div>
 
-                    <div id="result" class="radius">
-                      <div id="bar" class="radius"></div>
-                    </div>
+                   
 
                   </div>
 
@@ -264,12 +274,12 @@ header('location: ../index.php');
                     <legend>
                       <h1> Telefono *</h1>
                     </legend>
-                    <input  class="form-control" autocomplete="tel-national" type="number" placeholder="Num. di Telefono" name="telefono" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
+                    <input class="form-control" autocomplete="tel-national" type="number" placeholder="Num. di Telefono" name="telefono" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;">
                   </div>
 
                 </div>
-              
-              
+
+
                 <div class="col-md-12 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
 
                   <div class="feature-single form-group">

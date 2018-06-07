@@ -66,7 +66,7 @@
   <!-- /.container-fluid -->
   
   <div class="main app form" id="main"><!-- Main Section-->
-    <div class="hero-section">
+    <div class="hero-section" style="background:#ffffff00;">
       <div class="container nopadding" style=" padding-top: 74px;">
       
         <div class="col-md-12">
@@ -85,16 +85,7 @@
     
     
     <!-- Footer Section -->
-    <div class="footer">
-      <div class="container">
-        <div class="col-md-12"> <img src="logo/logo.png" width="125" height="28" alt="Image">
-          <div class="footer-text">
-            <p> Copyright © 2018 hubCar Tutti i diritti riservati.</p>
-          </div>
-        </div>
-       
-        </div>
-      </div>
+    
     </div>
     
     <!-- Scroll To Top --> 

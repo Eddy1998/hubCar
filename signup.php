@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'data/conn.inc.php';
-if(isset($_SESSION['driver'])||isset($_SESSION['user']))
+if(isset($_SESSION['user']))
 {
 header('location: index.php');
 }

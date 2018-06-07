@@ -1,11 +1,11 @@
 <?php
 session_start();
-//controllo dati se user o email nella tabella passeggero è già in uso
+//get dei dati dellutente dato l'id
 	include ('conn.inc.php');
 try{
   $dbh = new PDO($conn, $user, $pass);
   	
-      if(isset($_SESSION['user']))
+      if(isset($_SESSION['user'])&&isset($_SESSION['username']))
       {
         $jsondata=array();
         $username = $_SESSION['user'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
 {
   header("location : ../index.php");
 }
@@ -58,9 +58,6 @@ $nazionalita=$_REQUEST['nazionalita'];
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
-  
-  
-
    <script type="text/javascript" src="../js/controlupdate.js"></script>
  
 </head>

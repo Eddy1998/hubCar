@@ -14,6 +14,7 @@ try{
       { 
         $row=$stm->fetch();
        $_SESSION['user']=$row['idUtente'];
+       $_SESSION['username']=$row['nome'];
        
       header('location: ../index.php');
       }
