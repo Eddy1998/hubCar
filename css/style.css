@@ -1632,7 +1632,7 @@ button.btn.active:focus {
 
 .app-features h1 {
   font-size: 37px;
-  font-weight: 500;
+  font-weight: 350;
   margin: 0 0 10px 0;
 }
 
@@ -1878,10 +1878,12 @@ button.btn.active:focus {
   padding: 20px 20px 50px 20px;
   margin: 0 auto;
   margin-bottom: 30px;
-  background-color: #FFFFFF;
+  background-color: #ffffff5e;
   box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, .1);
-  border: transparent;
+  border: #0b0b0b;
   max-width: 400px;
+  border-color: #1eb858;
+  border-style: solid;
 }
 
 .table-left .icon,
@@ -1900,9 +1902,9 @@ button.btn.active:focus {
 .table-right .pricing-details span {
   display: inline-block;
   font-family: Open Sans;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
-  color: #808080;
+  color: #0e0e0e;
   margin-bottom: 20px;
 }
 
@@ -1910,8 +1912,9 @@ button.btn.active:focus {
 .table-right .pricing-details h2 {
   font-size: 18px;
   font-weight: 600;
-  color: #505050;
+  color: #1eb858;
   margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
 .table-left .pricing-details p,

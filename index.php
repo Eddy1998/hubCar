@@ -62,8 +62,8 @@
             <li><a class="page-scroll" href="#cerca">Cerca</a></li>
             <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
             <li>
-              <a class="page-scroll" href="dashboard/profile.php">
-                Profilo </a>
+              <a class="page-scroll" href="dashboard/dashboard.php">
+                Dashboard </a>
             </li>
              <li><a class="page-scroll" href="user/signout.php">Sign Out</a></li>
           </ul>

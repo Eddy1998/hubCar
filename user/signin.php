@@ -193,7 +193,7 @@ function myFunction() {
 
                   <div class="feature-single form-group" >
 
-                     <a class="navbar-brand page-scroll" href="signup.php" style="color:#1eb858;">Non ho ancora un'account</a> 
+                     <a class="navbar-brand page-scroll" href="signup.php" style="color:#1eb858;font-family: sans-serif;">Non ho ancora un'account</a> 
                     
                     
                   </div>
