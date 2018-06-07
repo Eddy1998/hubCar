@@ -8,6 +8,7 @@ if(!isset($_SESSION['user']))
 try{
  
     $targa=$_POST['targa'];
+  $targa=strtoupper($targa);
     $marca=$_POST['marca'];
     $modello=$_POST['modello'];
     $id=$_SESSION['user'];

@@ -78,6 +78,14 @@ $(document).ready(function(){
                     document.modulo.targa.focus();
                    return false;
                    }
+             else if(targa.length>7||targa.length<7)
+               {
+                  $('.correct').remove();
+                   $('#targamsg').append("<p class='correct' style='color:red;'>La targa deve contenere 7 caratteri</p>");
+
+                    document.modulo.targa.focus();
+                   return false;
+               }
              else
              {
                document.modulo.action = "../dashboard/createcar.php";
@@ -122,7 +130,7 @@ $(document).ready(function(){
               });
          
           $('#delete-car').click(function(){
-             if( confirm("Sei sicuro di eliminare l'automobile?"))
+             if( confirm("Sei sicuro di voler eliminare l'automobile?"))
                {
                  document.modulo.action = "../dashboard/deletecar.php";
                  document.modulo.submit();
@@ -186,6 +194,14 @@ $(document).ready(function(){
                     document.modulo.targa.focus();
                    return false;
                    }
+             else if(targa.length>7||targa.length<7)
+               {
+                  $('.correct').remove();
+                   $('#targamsg').append("<p class='correct' style='color:red;'>La targa deve contenere 7 caratteri</p>");
+
+                    document.modulo.targa.focus();
+                   return false;
+               }
              else
              {
             

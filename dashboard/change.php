@@ -1,0 +1,1 @@
+//request pass then new pass and conf pass, controls with js then update on database with control if the old pass is the same with the input form clled current passs

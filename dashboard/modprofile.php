@@ -103,6 +103,9 @@ $nazionalita=$_REQUEST['nazionalita'];
               <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo"><?php echo $nome. " ".$cognome?></h1>
 
             </div>
+            <div class="text-center">
+             <a href="change.php" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Password</a>
+            </div>
           </div>
         </div>
       </div>

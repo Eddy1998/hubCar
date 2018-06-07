@@ -69,7 +69,7 @@ if(!isset($_SESSION['user']))
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
                 <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
                 <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
-                <li><a class="page-scroll" href="#funzione">Password</a></li>
+                 <li><a class="page-scroll" href="profile.php">Profilo</a></li>
                 <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
 
               </ul>
@@ -183,7 +183,7 @@ if(!isset($_SESSION['user']))
 
                     <div id="targamsg" class="feature-single">
                       <h1 class="lab">Targa:</h1>
-                      <input id="targa" type="text" class="form-control" name="targa" value="" >
+                      <input id="targa" type="text" class="form-control" name="targa" value="" style="text-transform:uppercase">
                         <p id="ptarga" style="font-size: 25px;"></p>
                     </div>
                     <div class="feature-single">

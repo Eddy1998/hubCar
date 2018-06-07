@@ -62,11 +62,10 @@ if(!isset($_SESSION['user']))
                <li><a class="page-scroll" href="../index.php">Home</a></li>
               <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
-              <li><a class="page-scroll" href="#funzione">Password</a></li>
-              <li><a class="page-scroll" href="automobile.php">Automobile</a></li>
               <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
-
+             
             </ul>
+             
           </div>
         </div>
       </nav>
@@ -83,8 +82,8 @@ if(!isset($_SESSION['user']))
             <div class="hero-content text-center">
 
               <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo"></h1>
-
-            </div>
+             </div>
+            
           </div>
         </div>
       </div>
