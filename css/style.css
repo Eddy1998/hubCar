@@ -254,7 +254,7 @@ p {
   padding: 3em 0;
   background-color: #f8f8f8;
   /* box-shadow: 4px 1px 19px 20px black; */
-  text-shadow: 20px -3px 7px 4px black;
+  /*text-shadow: 20px -3px 7px 4px black;*/
 }
 
 #loading {

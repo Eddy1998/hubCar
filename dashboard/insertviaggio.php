@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
+/*if(!isset($_SESSION['user']))
 {
   header("location : ../index.php");
-}
+}*/
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -50,8 +50,6 @@ if(!isset($_SESSION['user']))
 
 
 
-    <script type="text/javascript" src="../js/dataautomobile.js"></script>
-
   </head>
 
   <body>
@@ -88,24 +86,11 @@ if(!isset($_SESSION['user']))
             <div class="col-md-12">
               <div class="hero-content text-center">
 
-                <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo">Automobile di </h1>
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo">Crea un Viaggio </h1>
                 <p>
-                  Puoi aggiungere solo un'automobile, puoi modificarlo in futuro
+                 Non aggiungere viaggi con le stesse date
                 </p>
-                <?php if(@$_GET['success']==1)
-            {?>
-                <h2 id="true" style="color:green" class="wow fadeInUp" data-wow-delay="0.1s">
-                  Operazione eseguita con successo
-                </h2>
-                 <script>setTimeout(function() { $("#true").hide(); }, 5000);</script>
-           <?php }?>
-             <?php if(@$_GET['err']==1)
-            {?>
-                <h2 id="false" style="color:red" class="wow fadeInUp" data-wow-delay="0.1s">
-                  Errore durante l'operazione
-                </h2>
-                 <script>setTimeout(function() { $("#false").hide(); }, 5000);</script>
-           <?php }?>
+               
                
                 
               </div>
@@ -146,46 +131,87 @@ if(!isset($_SESSION['user']))
                 <div id="autodata" class="col-md-12 features-left" data-wow-delay="0.5s" style="padding-top: 0px;">
                   <hr>
                  
-                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
-
-
+                 
+                       
+                     <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
+                    
                     <div id="marcamsg" class="feature-single">
-                      <h1 class="lab">Marca:</h1>
-                      <input id="marca" type="text" class="form-control" name="marca" value="">
+                      <h1 class="lab">Data viaggio</h1>
+                      <input id="marca" type="date" class="form-control" name="marca" value="">
+                      <p id="pmarca" style="font-size: 25px;"></p>
+                    </div>
+                    </div>
+                 
+                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+
+
+                    <div id="annomsg" class="feature-single">
+                      <h1 class="lab">Cttà Partenza</h1>
+                      <input id="anno" type="text" class="form-control" name="anno" value="" >
+                         <p id="panno" style="font-size: 25px;"></p>
+                    </div>
+                      <div  class="feature-single">
+                      <h1 class="lab">Bagagli</h1>
+                      <input id="marca" type="date" class="form-control" name="marca" value="">
                       <p id="pmarca" style="font-size: 25px;"></p>
                     </div>
 
                   </div>
-
-                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+                  <div class="col-md-1 wow fadeInDown" data-wow-delay="0.2s">
 
 
                     <div id="modellomsg" class="feature-single">
-                      <h1 class="lab">Modello:</h1>
-                      <input id="modello" type="text" class="form-control" name="modello" value="">
+                      <h1 class="lab">Ora Partenza</h1>
+                      <input id="modello" type="time" class="form-control" name="modello" value="">
                         <p id="pmodello" style="font-size: 25px;"></p>
                        
                     </div>
+                    <div id="targamsg" class="feature-single">
+                      <h1 class="lab">Animali</h1>
+                      <input id="targa" type="time" class="form-control" name="targa" value="" style="text-transform:uppercase">
+                        <p id="ptarga" style="font-size: 25px;"></p>
+                    </div>
 
                   </div>
-                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+                 
+                   <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
                     <div id="annomsg" class="feature-single">
-                      <h1 class="lab">Anno:</h1>
+                      <h1 class="lab">Cttà Arrivo</h1>
                       <input id="anno" type="text" class="form-control" name="anno" value="" >
                          <p id="panno" style="font-size: 25px;"></p>
                     </div>
-
-                  </div>
-                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
-
-
-                    <div id="targamsg" class="feature-single">
-                      <h1 class="lab">Targa:</h1>
+                        <div id="targamsg" class="feature-single">
+                      <h1 class="lab">Importo</h1>
                       <input id="targa" type="text" class="form-control" name="targa" value="" style="text-transform:uppercase">
                         <p id="ptarga" style="font-size: 25px;"></p>
                     </div>
+
+                  </div>
+                  
+                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+                    
+                     <div id="targamsg" class="feature-single">
+                      <h1 class="lab">Ora Arrivo</h1>
+                      <input id="targa" type="time" class="form-control" name="targa" value="" style="text-transform:uppercase">
+                        <p id="ptarga" style="font-size: 25px;"></p>
+                    </div>
+                    </div>
+                  
+                     
+                         <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+                    </div>
+                  
+                  
+                  <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
+
+
+                    
+                  </div>
+                   <div class="col-md-12 wow fadeInDown" data-wow-delay="0.2s">
+                  </div>
+                      <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
                     <div class="feature-single">
                       <div class="row">
 
@@ -211,8 +237,8 @@ if(!isset($_SESSION['user']))
                       </div>
                     </div>
                   </div>
+                       
                 </div>
-                <hr>
               </div>
             </div>
           </form>
