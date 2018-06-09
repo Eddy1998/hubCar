@@ -8,7 +8,7 @@ $dbh = new PDO($conn,$user,$pass);
 
   <head>
     <meta charset="utf-8">
-    <title>hubCar - Search</title>
+    <title>hubCar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="logo/favicon.ico" type="image/png" sizes="16x16">
 
@@ -57,11 +57,11 @@ $dbh = new PDO($conn,$user,$pass);
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand page-scroll" href="../index.php"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a>Search</div>
+              <a class="navbar-brand page-scroll" href="index"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a></div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a class="page-scroll" href="index.php">Home</a></li>
+                <li><a class="page-scroll" href="index">Home</a></li>
               </ul>
             </div>
           </div>
@@ -72,14 +72,23 @@ $dbh = new PDO($conn,$user,$pass);
 
       <div class="main app form" id="main">
         <!-- Main Section-->
+        <div class="hero-section">
+        <div class="container nopadding">
+
+          <div class="col-md-12">
+            <div class="hero-content text-center">
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi disponibili <br>da Firenze - a Pisa </h1>
+              <p class="wow fadeInUp" data-wow-delay="0.2s">prenota e viaggia</p>
+
+            </div>
+          </div>
+        </div>
+      </div>  
         
            <div id="pricing" class="pricing-section text-center">
       <div class="container">
         <div class="col-md-12 col-sm-12 nopadding">
-          <div class="pricing-intro">
-            <h1 class="wow fadeInUp" data-wow-delay="0s">Viaggi da Firenze a Pisa</h1>
-            <p class="wow fadeInUp" data-wow-delay="0.2s"> prenota e viaggia </p>
-          </div>
+          
           <div class="col-sm-4" style="float:center;">
             <div class="table-right wow fadeInUp" data-wow-delay="0.4s">
               <div class="pricing-details">

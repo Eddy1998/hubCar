@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="css/ionicons.min.css">
     <!-- Resource style -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/control-search-travel.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -52,7 +54,7 @@
             ?>
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a>Carpooling</div>
+          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a></div>
       
          
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,14 +98,14 @@
           ?>
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a>Carpooling </div>
+          <a class="navbar-brand page-scroll" href="#main"><img src="logo/logo.png" width="135" height="30" alt="hubcarimg" /></a>
+      </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a class="page-scroll" href="#main">Home</a></li>
             <li><a class="page-scroll" href="#cerca">Cerca</a></li>
             <li><a class="page-scroll" href="#login">Accedi</a></li>
-            <li><a class="page-scroll" href="#register">Registrati</a></li>
             <li><a class="page-scroll" href="#funzione">Come Funziona</a></li>
           </ul>
         </div>
@@ -132,11 +134,12 @@
         <div class="app-features text-center" id="cerca">
           <div class="container">
             
-            <form class="subscribe-form wow zoomIn" action="#" method="post">
+            <form class="subscribe-form wow zoomIn" action="#" method="post" name="modulo">
               <div id="fh5co-contact" class="wow fadeInUp">
-                <div class="col-md-12">
+                <div class="col-md-12 wow fadeInDown">
+                  
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
-                    <div class="pitch-content">
+                    <div id="controllovi" class="pitch-content">
                       <h1>Parto da</h1>
                       <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                         <option ></option>
@@ -153,6 +156,7 @@
                       }  
                       ?>
                       </select>
+                      
                     </div>
                   </div>
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
@@ -178,7 +182,7 @@
                   </div>
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s" style="text-align:center;">
                     <div class="pitch-content" style="padding-top: 66px;">
-                      <a href="#" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">cerca</a> </div>
+                      <a id="cercaviaggio" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">cerca</a> </div>
                   </div>
                 </div>
               </div>
@@ -218,53 +222,51 @@
       
       {
         ?>
-          <div id="register" class="pricing-section text-center">
-            <div class="container">
-              <div class="col-md-12 col-sm-12 nopadding">
-                <div class="pricing-intro">
-                  <h1 class="wow fadeInUp" data-wow-delay="0s">Registrazione</h1>
-                  <p class="wow fadeInUp" data-wow-delay="0.2s"> Facile e sicuro. Registrati per usufruire dei servizi </p>
-                </div>
-               
-
-                <div class="col-sm-12">
-                  <div class="table-right wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                    <div class="icon" style=" padding-top: 0px; padding-bottom: 0px;"> <i class="ion-ios-personadd-outline"></i> </div>
-                    <div class="pricing-details">
-                      <h2>Registrati e viaggia</h2>
-                      <ul>
-                        <li>Cerca o crea un viaggio</li>
-                      </ul>
-                      <a class="btn btn-primary btn-action btn-fill" href="user/signup.php" type="button">Sign Up</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div id="login" class="pricing-section text-center">
             <div class="container">
-              <div class="col-md-12 col-sm-12 nopadding">
-                <div class="pricing-intro">
-                  <h1 class="wow fadeInUp" data-wow-delay="0s">Accedi</h1>
-                  <p class="wow fadeInUp" data-wow-delay="0.2s">Benvenuto, accedi e viaggia</p>
+             
+               <div class="col-md-6 col-sm-6 nopadding">
+                   <div class="pricing-intro">
+                  <h1 class="wow fadeInUp" data-wow-delay="0s">Accedi al tuo account</h1>
+               
                 </div>
                 <div class="col-sm-12">
                   <div class="table-left wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                     <div class="icon" style=" padding-top: 0px; padding-bottom: 0px;"> <i class="ion-android-car"></i> </div>
                     <div class="pricing-details">
-                      <h2>Accedi al tuo account</h2>
 
-                      <a class="btn btn-primary btn-action btn-fill" href="user/signin.php" type="button">Sign In</a>
+                      <ul>
+                        <li> Accedi al tuo account e viaggia</li>
+                      </ul>
+                      <a class="btn btn-primary btn-action btn-fill" href="user/signin.php" type="button">Accedi</a>
                     </div>
                   </div>
                 </div>
 
               
               </div>
+               <div class="col-md-6 col-sm-6 nopadding">
+                <div class="pricing-intro">
+                  <h1 class="wow fadeInUp" data-wow-delay="0s">Non hai un'account?</h1>
+               
+                </div>
+                <div class="col-sm-12">
+                  <div class="table-right wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                    <div class="icon" style=" padding-top: 0px; padding-bottom: 0px;"> <i class="ion-ios-personadd-outline"></i> </div>
+                    <div class="pricing-details">
+                     
+                      <ul>
+                        <li>Registrati e viaggia</li>
+                      </ul>
+                      <a class="btn btn-primary btn-action btn-fill" href="user/signup.php" type="button">Registrazione</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+         
           <?php
       }
       ?>

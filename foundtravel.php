@@ -45,6 +45,7 @@ $dbh = new PDO($conn,$user,$pass);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/control-search-travel.js"></script>
 
 
   </head>
@@ -57,11 +58,11 @@ $dbh = new PDO($conn,$user,$pass);
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand page-scroll" href="../index.php"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a>Search</div>
+              <a class="navbar-brand page-scroll" href="index"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a>Search</div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a class="page-scroll" href="index.php">Home</a></li>
+                <li><a class="page-scroll" href="index">Home</a></li>
               </ul>
             </div>
           </div>
@@ -89,7 +90,7 @@ $dbh = new PDO($conn,$user,$pass);
 
        <div class="app-features text-center" id="cerca">
           <div class="container">
-            <form class="subscribe-form wow zoomIn" action="#" method="post">
+            <form class="subscribe-form wow zoomIn" action="#" method="post" name="modulo">
               <div id="fh5co-contact" class="wow fadeInUp">
                 <div class="col-md-12">
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
@@ -135,7 +136,7 @@ $dbh = new PDO($conn,$user,$pass);
                   </div>
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s" style="text-align:center;">
                     <div class="pitch-content" style="padding-top: 66px;">
-                      <a href="#" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">cerca</a> </div>
+                      <a id="cercaviaggio" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">cerca</a> </div>
 
                   </div>
 

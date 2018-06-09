@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
 {
-  header("location : ../index.php");
+  header("location: ../index");
 }
 
 $sesso=$_REQUEST['sesso'];
