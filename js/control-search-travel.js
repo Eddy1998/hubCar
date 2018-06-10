@@ -5,19 +5,25 @@ $('#cercaviaggio').click(function(){
   
   if (((departure === "") || (departure === "undefined"))&&((arrive === "") || (arrive === "undefined"))) {
         
-    window.location.replace("foundtravel");
-    /*$('.messaggio').remove();
-        var mex= "<div class='col-md-12 messaggio'><p style='color:red;'>Seleziona una citta' di partenza</p></div>";
-        $('#controllovi').append(mex);
-        document.modulo.partenza.focus();
-        setTimeout(function() { $(".messaggio").hide(); }, 2000);
-        return false;*/
+    window.location.href="foundtravel";
   }
-  else
+ 
+  else  if((departure)&&((arrive==="")||(arrive==="undefined")))
     {
-      document.modulo.action = "../dashboard/viaggio";
-        document.modulo.submit();
+       window.location.href="viaggio?dp="+departure;
+     
     }
-  
+    else if((arrive)&&((departure==="")||(departure==="undefined")))
+    {
+      window.location.href="viaggio?rv="+arrive;
+    }
+  else if (((departure !== "") || (departure !== "undefined"))&&(departure)&&(arrive)&&(departure!==arrive)&&((arrive !== "") || (arrive !== "undefined")))
+    {
+       window.location.href="viaggio?dp="+departure+"&rv="+arrive;
+    }
+ else if(((departure !== "") || (departure !== "undefined"))&&(departure)&&(arrive)&&(departure===arrive)&&((arrive !== "") || (arrive !== "undefined")))
+  {
+    window.location.href="404";
+  }  
 });
 });

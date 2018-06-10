@@ -146,14 +146,15 @@
                       <?php
                       $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
                       $stm->execute();
-                      if($stm->rowCount()>0)
+                       if($stm->rowCount()>0)
                       {
                         
                         while($row= $stm->fetch())
                         {
-                            echo "<option value'" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                        }
-                      }  
+                          ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php }
+                      } 
                       ?>
                       </select>
                       
@@ -168,14 +169,15 @@
                     <?php
                       $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
                       $stm->execute();
-                      if($stm->rowCount()>0)
+                       if($stm->rowCount()>0)
                       {
                         
                         while($row= $stm->fetch())
                         {
-                            echo "<option value'" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                        }
-                      }  
+                          ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php }
+                      } 
                       ?>
                     </select>
                     </div>

@@ -45,6 +45,7 @@ $dbh = new PDO($conn,$user,$pass);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/data-travel.js"></script>
 
 
   </head>
@@ -73,54 +74,61 @@ $dbh = new PDO($conn,$user,$pass);
       <div class="main app form" id="main">
         <!-- Main Section-->
         <div class="hero-section">
-        <div class="container nopadding">
+          <div class="container nopadding">
 
-          <div class="col-md-12">
-            <div class="hero-content text-center">
-              <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi disponibili <br>da Firenze - a Pisa </h1>
-              <p class="wow fadeInUp" data-wow-delay="0.2s">prenota e viaggia</p>
+            <div class="col-md-12">
+              <div class="hero-content text-center">
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi disponibili</h1>
+                <h1 style="font-size:35px;font-family:sans-serif;" class="wow fadeInUp" data-wow-delay="0.1s">
+                  <?php if(isset($_GET['dp']))
+                       {   
+                          echo "da ".$_GET['dp'];
+                     ?>
+                  <input type="hidden" id="partenza" value="<?php echo $_GET['dp'];?>"></input>
+                  <?php
+                      }
+                      ?>
+                </h1>
+                <h1 style="font-size:35px;font-family:sans-serif;" class="wow fadeInUp" data-wow-delay="0.1s">
+                  <?php if(isset($_GET['rv']))
+                   { 
+                      echo "a ".$_GET['rv'];
+                      ?>
+                  <input type="hidden" id="arrivo" value="<?php echo $_GET['rv'];?>"></input>
+                  <?php
+                    } 
+                    ?>
+                </h1>
+                <p class="wow fadeInUp" data-wow-delay="0.2s">prenota e viaggia</p>
 
-            </div>
-          </div>
-        </div>
-      </div>  
-        
-           <div id="pricing" class="pricing-section text-center">
-      <div class="container">
-        <div class="col-md-12 col-sm-12 nopadding">
-          
-          <div class="col-sm-4" style="float:center;">
-            <div class="table-right wow fadeInUp" data-wow-delay="0.4s">
-              <div class="pricing-details">
-				            <h2>Data :</h2>
-                <span>08/06/2018</span><br>
-                <span>Firenze - 19:00</span><br>
-                <span>Pisa  - 20:30</span>
-				
-				            <h2>Dati Conducente :</h2>
-                <span>Eddy David, 19 anni</span><br>
-				          <span>Prezzo: 4€</span><br>
-				
-                <button class="btn btn-primary btn-action btn-fill">Prenota</button>
               </div>
             </div>
           </div>
-           
-		   
-		    
-         
         </div>
-      </div>
-    </div>
+        <div id="pricing" class="pricing-section text-center" style="padding-top: 0px;">
+          <div class="container">
+            <div id="viaggi" class="col-md-12 col-sm-12 nopadding ">
+             
+         <!--riempimento dinamico a seconda della disponibilità dei viaggi-->
+          
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
         <!-- Client Section -->
 
-   
+
 
 
         <!-- Footer Section -->
-       
 
- <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
+
+        <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
 
 
       </div>
@@ -138,10 +146,6 @@ $dbh = new PDO($conn,$user,$pass);
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <!-- Bootstrap -->
-
-
-
-
 
 
 

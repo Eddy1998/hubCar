@@ -58,11 +58,12 @@ $dbh = new PDO($conn,$user,$pass);
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand page-scroll" href="index"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a>Search</div>
+              <a class="navbar-brand page-scroll" href="index"><img src="logo/logo.png" width="135" height="30" alt="hubCar" /></a></div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="index">Home</a></li>
+               
               </ul>
             </div>
           </div>
@@ -94,7 +95,7 @@ $dbh = new PDO($conn,$user,$pass);
               <div id="fh5co-contact" class="wow fadeInUp">
                 <div class="col-md-12">
                   <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
-                    <div class="pitch-content">
+                    <div id="controllovi" class="pitch-content">
                       <h1>Partenza da</h1>
                       <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                         <option ></option>
@@ -106,8 +107,9 @@ $dbh = new PDO($conn,$user,$pass);
                         
                         while($row= $stm->fetch())
                         {
-                            echo "<option value'" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                        }
+                          ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php }
                       }  
                       ?>
                       </select>
@@ -126,10 +128,11 @@ $dbh = new PDO($conn,$user,$pass);
                       {
                         
                         while($row= $stm->fetch())
-                        {
-                            echo "<option value'" . $row['nome_province'] . "'>" . $row['nome_province'] . "</option>";
-                        }
-                      }  
+                        { ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php
+                           }  
+                      }
                       ?>
                     </select>
                     </div>

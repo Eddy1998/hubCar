@@ -5,7 +5,7 @@
 
 
     <meta charset="utf-8">
-    <title>404</title>
+    <title>Pagina non esistente</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="logo/favicon.ico" type="image/png" sizes="16x16">
 
@@ -71,7 +71,7 @@
       
         <div class="col-md-12">
           <div class="hero-content text-center" style="padding-top: 100px;padding-bottom: 0px;">
-            <h1 class="wow fadeInUp" data-wow-delay="0.1s">404 Page not found.</h1>
+            <h1 class="wow fadeInUp" data-wow-delay="0.1s">La pagina richiesta non esiste...</h1>
             
             <a href="index.php" class="btn btn-action wow fadeInUp">Home</a>
           </div>
