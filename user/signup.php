@@ -60,7 +60,6 @@ header('location: ../index.php');
         height: 8px;
         margin-top:10px;
       }
-
       .radius {
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
@@ -278,28 +277,20 @@ header('location: ../index.php');
                   </div>
 
                 </div>
-
-
                 <div class="col-md-12 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
-
                   <div class="feature-single form-group">
-
                     <div class='col-md-5'>
                       <div class='form-group text-center'>
                         <input type='button' value='Registra' onClick="Modulo()" class="btn btn-primary btn-action btn-fill">
                       </div>
                     </div>
                     <div class='col-md-2'>
-
                     </div>
                     <div class='col-md-5'>
                       <div class='form-group text-center heading-section'>
-
                         <div class='form-group'>
                           <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index.php'" class="btn btn-danger btn-action btn-fill">
                         </div>
-
-
                       </div>
                     </div>
                   </div>
@@ -307,52 +298,20 @@ header('location: ../index.php');
               </form>
             </div>
             <div class="col-md-4 features-left">
-
             </div>
           </div>
-
         </div>
-
-
-
-
-        <!-- Footer Section -->
-        <div class="footer">
-          <div class="container">
-            <div class="col-md-12"> <img src="../logo/logo.png" width="125" height="28" alt="Image" />
-              <div class="footer-text">
-                <p> Copyright © 2018 hubCar Tutti i diritti riservati.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        <!-- Footer Section -->       
         <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
-
-
       </div>
       <!-- Main Section -->
     </div>
     <!-- Wrapper-->
-
-
     <!-- Jquery and Js Plugins -->
-
-
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="../js/plugins.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
     <!-- Bootstrap -->
-
-
-
-
-
-
-
-  </body>
-
+    </body>
   </html>

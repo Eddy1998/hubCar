@@ -89,7 +89,7 @@
     //Effettua il controllo sul campo NOME
     if ((nome === "") || (nome === "undefined")) {
        $('.correct').remove();
-      $('#nome').append("<div class='correct' class='row text-center' ><p style='color:red;'>Inserire un nome</p></div>");
+      $('#nome').append("<p class='correct' class='row text-center' style='color:red;'>Inserire un nome</p>");
         document.modulo.nome.focus();
         return false;
     }

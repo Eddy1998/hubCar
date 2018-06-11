@@ -107,13 +107,9 @@ function myFunction() {
 
 
          <div id="fh5co-contact" class="container" style="padding-top: 0px;">
-
-            <div class="col-md-4 features-left">
-
-            </div>
-            <div class="col-md-4 features-left">
+              <form method="POST" action="access.php">
               <?php if(@$_GET['err']==1) {?>
-              <div class="col-md-12 wow fadeInDown" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
+              <div class="col-md-12 wow fadeInDown text-center"  style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
 
                   <div class="feature-single">
                     <h1 style="color:red">
@@ -122,7 +118,7 @@ function myFunction() {
                   </div>
                 </div>
               <?php } ?>
-              <form method="POST" action="access.php">
+            <div class="col-md-4 features-left"  style="margin-top: 30px;">
                 <div class="col-md-12 wow fadeInDown" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">
 
                   <div class="feature-single">
@@ -136,6 +132,10 @@ function myFunction() {
                     </div>
                   </div>
                 </div>
+            </div>
+            <div class="col-md-4 features-left"  style="margin-top: 30px;">
+              
+                
 
                 <div class="col-md-12 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
 
@@ -150,12 +150,11 @@ function myFunction() {
                         </div>
                       
                         <div class="row">
-                          <div class="col-md-12">
+                          <div class="col-md-10" >
                             <input  id="password" autocomplete="new-password" type="password" class="form-control" placeholder="Password" name="password" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; ">
-                               
-                          <p>
-                            Show Password
-                            </p><button class="btn btn-default reveal" type="button" onClick="myFunction()" style=""> <i class="ion-eye"></i> </button> 
+                          </div>   
+                            <div class="col-md-2" style="padding-top:4px"  >
+                         <button class="btn btn-default reveal" type="button" onClick="myFunction()" style=""> <i class="ion-eye"></i> </button> 
                           </div>
                         
                         </div>
@@ -164,11 +163,17 @@ function myFunction() {
                   </div>
                  
                 </div>
-               <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+               
+                
 
-                  <div class="feature-single form-group" id="scadenza">
+             
+            </div>
+            <div class="col-md-4 features-left "  style="margin-top: 30px;">
+                  <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
 
-                    <div class='col-md-5' style="float:left">
+                  
+
+                    <div class='col-md-5'  style="padding-top: 32px;float:left;">
                       <div class='form-group text-center'>
                         <input type='submit' value='Signin' class="btn btn-primary btn-action btn-fill" name="loginuser">
                       </div>
@@ -176,7 +181,7 @@ function myFunction() {
                     <div class='col-md-2'>
 
                     </div>
-                    <div class='col-md-5' style="float:right">
+                    <div class='col-md-5'  style="padding-top: 32px;float:left;float:right;">
                       <div class='form-group text-center heading-section'>
 
                         <div class='form-group'>
@@ -187,23 +192,14 @@ function myFunction() {
                       </div>
                       
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
-
-                  <div class="feature-single form-group" >
-
-                     <a class="navbar-brand page-scroll" href="signup.php" style="color:#1eb858;font-family: sans-serif;">Non ho ancora un'account</a> 
                     
-                    
-                  </div>
                 </div>
-
-              </form>
+              <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+                     <a class="navbar-brand page-scroll text-center" href="signup.php" style="color:#1eb858;font-family: sans-serif;">Non ho ancora un'account</a> 
+                  </div>
+               
             </div>
-            <div class="col-md-4 features-left">
-
-            </div>
+           </form>
           </div>
 
         </div>
@@ -212,16 +208,7 @@ function myFunction() {
 
 
         <!-- Footer Section -->
-        <div class="footer">
-          <div class="container">
-            <div class="col-md-12"> <img src="../logo/logo.png" width="125" height="28" alt="Image" />
-              <div class="footer-text">
-                <p> Copyright © <?php echo date("Y");?> hubCar Tutti i diritti riservati.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        
 
  <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
 

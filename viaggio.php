@@ -46,6 +46,7 @@ $dbh = new PDO($conn,$user,$pass);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/data-travel.js"></script>
+     <script type="text/javascript" src="js/control-search-travel.js"></script>
 
 
   </head>
@@ -105,6 +106,66 @@ $dbh = new PDO($conn,$user,$pass);
             </div>
           </div>
         </div>
+    <div class="app-features text-center" id="cerca">
+          <div class="container">
+            
+            <form class="subscribe-form wow zoomIn" action="#" method="post" name="modulo">
+              <div id="fh5co-contact" class="wow fadeInUp">
+                <div class="col-md-12 wow fadeInDown">
+                  
+                  <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
+                    <div id="controllovi" class="pitch-content">
+                      <h1>Parto da</h1>
+                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                        <option ></option>
+                      <?php
+                      $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
+                      $stm->execute();
+                       if($stm->rowCount()>0)
+                      {
+                        
+                        while($row= $stm->fetch())
+                        {
+                          ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php }
+                      } 
+                      ?>
+                      </select>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
+
+                    <div class="pitch-content">
+                      <h1>Arrivo a </h1>
+                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8;-webkit-appearance: none;">
+                      <option></option>
+                    <?php
+                      $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
+                      $stm->execute();
+                       if($stm->rowCount()>0)
+                      {
+                        
+                        while($row= $stm->fetch())
+                        {
+                          ?>
+                            <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
+                       <?php }
+                      } 
+                      ?>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s" style="text-align:center;">
+                    <div class="pitch-content" style="padding-top: 66px;">
+                      <a id="cercaviaggio" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">cerca</a> </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
         <div id="pricing" class="pricing-section text-center" style="padding-top: 0px;">
           <div class="container">
             <div id="viaggi" class="col-md-12 col-sm-12 nopadding ">
