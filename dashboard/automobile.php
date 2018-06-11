@@ -126,13 +126,13 @@ if(!isset($_SESSION['user']))
                               
                       <div id="bottoni" class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
                         <div class="col-md-12">
-                           <div id="add-car" class="pitch-icon" ><a><i class="ion-android-add" ></i></a> </div>
+                           <div id="add-car" class="pitch-icon" style="cursor: pointer"><a><i class="ion-android-add"  style="position: relative;" ></i></a> </div>
                         </div>
                        <div class="col-md-6">
-                           <div id="insert-auto" class="pitch-icon" ><a ><i class="ion-ios-checkmark-empty" ></i></a> </div>
+                           <div id="insert-auto" class="pitch-icon" style="cursor: pointer"><a ><i class="ion-ios-checkmark-empty" style="position: relative;" ></i></a> </div>
                         </div>
                         <div class="col-md-6">
-                           <div id="cancel-add" class="pitch-icon" style="background:#d9534f;" ><a ><i class="ion-ios-close-empty" ></i></a> </div>
+                           <div id="cancel-add" class="pitch-icon" style="background:#d9534f;cursor:pointer" ><a ><i class="ion-ios-close-empty" style="position: relative;" ></i></a> </div>
                         </div>
                      </div>
                       <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
@@ -191,22 +191,22 @@ if(!isset($_SESSION['user']))
 
                        <div id="config-option" class="col-md-12">
                           <div>
-                             <div id="config-car" class="pitch-icon"><a><i class="ion-android-settings"></i></a> </div>
+                             <div id="config-car" class="pitch-icon" style="cursor: pointer"><a><i style="position: relative;" class="ion-android-settings" ></i></a> </div>
                           </div>
                          
                          
                         </div>
                         
                            <div  class="col-md-4">
-                            <div id="update-car" class="pitch-icon" ><a ><i class="ion-ios-checkmark-empty" ></i></a> </div>
+                            <div id="update-car" class="pitch-icon"  style="cursor: pointer"><a ><i class="ion-ios-checkmark-empty"  style="position: relative;" ></i></a> </div>
                         </div>
                         <div  class="col-md-4">
-                            <div id="cancel-update" class="pitch-icon" style="background:#d9534f;"><a ><i class="ion-ios-close-empty" ></i></a> </div>
+                            <div id="cancel-update" class="pitch-icon" style="background:#d9534f;cursor:pointer"><a ><i class="ion-ios-close-empty"  style="position: relative;"></i></a> </div>
                         </div>
                            
 
                         <div  class="col-md-4">
-                          <div name="delete-car" id="delete-car" class="pitch-icon" style="background:#d9534f;"><a><i class="ion-trash-b" ></i></a> </div>
+                          <div name="delete-car" id="delete-car" class="pitch-icon" style="background:#d9534f;cursor:pointer"><a><i class="ion-trash-b"  style="position: relative;" ></i></a> </div>
                         </div>
                       </div>
                     </div>

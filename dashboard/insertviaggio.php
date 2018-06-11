@@ -87,12 +87,6 @@ session_start();
               <div class="hero-content text-center">
 
                 <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="profilo">Crea un Viaggio </h1>
-                <p>
-                 Non aggiungere viaggi con le stesse date
-                </p>
-               
-               
-                
               </div>
             </div>
           </div>
@@ -132,24 +126,149 @@ session_start();
                   <hr>
                  
                  
-                       
-                     <div class="col-md-4 wow fadeInDown" data-wow-delay="0.2s">
-                    
-                    <div id="marcamsg" class="feature-single">
-                      <h1 class="lab">Data viaggio</h1>
-                      <input id="marca" type="date" class="form-control" name="marca" value="">
-                      <p id="pmarca" style="font-size: 25px;"></p>
+                        <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                           <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                          </div>
+                           <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                          <div id="marcamsg" class="feature-single">
+                            <h1 class="lab">Data viaggio</h1>
+                            <input id="marca" type="date" class="form-control" name="marca" value="">
+                            <p id="pmarca" style="font-size: 25px;"></p>
+                          </div>
+                          </div>
+                          <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                          </div>
+                       </div>
+                         <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                           <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                             
+                          </div>
+                           <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                                <div id="annomsg" class="feature-single">
+                              <h1 class="lab">Cttà Partenza</h1>
+                              <input id="anno" type="text" class="form-control" name="anno" value="" >
+                                 <p id="panno" style="font-size: 25px;"></p>
+                            </div>
+                          </div>
+                           <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                                   <div id="targamsg" class="feature-single">
+                              <h1 class="lab">Ora Partenza</h1>
+                              <input id="targa" type="time" class="form-control" name="targa" value="" style="-webkit-appearance: none;">
+                                <p id="ptarga" style="font-size: 25px;"></p>
+                            </div>
+                          </div>
+                          <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                            
+                          </div>
+                       </div>
+                        <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                           <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                             
+                          </div>
+                           <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                                <div id="annomsg" class="feature-single">
+                              <h1 class="lab">Cttà Arrivo</h1>
+                              <input id="anno" type="text" class="form-control" name="anno" value="" >
+                                 <p id="panno" style="font-size: 25px;"></p>
+                            </div>
+                          </div>
+                           <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                                   <div id="targamsg" class="feature-single">
+                              <h1 class="lab">Ora Arrivo</h1>
+                              <input id="targa" type="time" class="form-control" name="targa" value="" style="-webkit-appearance: none;">
+                                <p id="ptarga" style="font-size: 25px;"></p>
+                            </div>
+                          </div>
+                          <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                            
+                          </div>
+                       </div>
+                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                             
+                          </div>
+                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                           <div class="feature-single">
+                    <div class="form-group" id="sesso">
+                      <legend>
+                        <h1>Bagagli</h1>
+                      </legend>
+                      <div class="row  text-center">
+                        <div class="col-md-4" style="float:left">
+
+
+                        </div>
+                        <div class="col-md-2" style="float:left;">
+
+                          <input type="radio" name="sesso" value="Maschile" checked="checked">
+                          <p>SI</p>
+
+
+                        </div>
+                        <div class="col-md-2" style="float:right;">
+
+
+                          <input type="radio" name="sesso" value="Femminile">
+                          <p>NO</p>
+
+                        </div>
+                        <div class="col-md-4" style="float:right;">
+
+                        </div>
+                      </div>
+                     
                     </div>
+                  </div>
                     </div>
+                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                           <div class="feature-single">
+                    <div class="form-group" id="sesso">
+                      <legend>
+                        <h1>Animali</h1>
+                      </legend>
+                      <div class="row  text-center">
+                        <div class="col-md-3" style="float:left">
+
+
+                        </div>
+                        <div class="col-md-3" style="float:left;">
+
+                          <input type="radio" name="sesso" value="Maschile" checked="checked">
+                          <p>SI</p>
+
+
+                        </div>
+                        <div class="col-md-3" style="float:right;">
+
+
+                          <input type="radio" name="sesso" value="Femminile">
+                          <p>No</p>
+
+                        </div>
+                        <div class="col-md-3" style="float:right;">
+
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                             
+                          </div>
+                       </div>
                  
                    <div class="col-md-3 wow fadeInDown" data-wow-delay="0.2s">
 
 
-                    <div id="annomsg" class="feature-single">
-                      <h1 class="lab">Cttà Partenza</h1>
-                      <input id="anno" type="text" class="form-control" name="anno" value="" >
-                         <p id="panno" style="font-size: 25px;"></p>
-                    </div>
+                    
                       <div  class="feature-single">
                       <h1 class="lab">Bagagli</h1>
                       <input id="marca" type="date" class="form-control" name="marca" value="">
