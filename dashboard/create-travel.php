@@ -6,25 +6,37 @@ if(!isset($_SESSION['user']))
   header('location: ../user/signin.php');
 }
 try{
- 
-    $targa=$_POST['targa'];
-  $targa=strtoupper($targa);
-    $marca=$_POST['marca'];
-    $modello=$_POST['modello'];
-    $id=$_SESSION['user'];
-    $anno=$_POST['anno'];
+      $rawdate = htmlentities($_POST['dataViaggio']);
+      $date = date('Y-m-d', strtotime($rawdate));
+      $partenza=$_POST['partenza'];
+      $oraPartenza=$_POST['oraPartenza'];
+      $arrivo=$_POST['arrivo'];
+      $oraArrivo=$_POST['oraArrivo'];
+      $passeggeri=$_POST['passeggeri'];
+      $prezzo=$_POST['costo'];
+    if (empty($_POST['commento'])){
+      $commento =NULL;
+    }
+    else {
+      $commento=$_POST['commento'];
+   }
+    $idAutista=$_SESSION['user'];
+   
      $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("UPDATE auto SET targa=:targa, marca=:marca, modello=:modello,  anno=:anno WHERE idAutista=:idAutista;");
-        $stm->bindValue(":targa",$targa);
-        $stm->bindValue(":marca",$marca);
-        $stm->bindValue(":modello",$modello);
-        $stm->bindValue(":idAutista",$id);
-        $stm->bindValue(":anno",$anno);
+       $stm=$dbh->prepare("INSERT INTO viaggio (idAutista,data,oraPartenza,oraArrivo,partenza,arrivo,posti,importo,commento) VALUES(:id,:data,:oraPartenza,:oraArrivo,:partenza,:arrivo,:posti,:importo,:commento)");
+        $stm->bindValue(":id",$idAutista);
+        $stm->bindValue(":oraPartenza",$oraPartenza);
+        $stm->bindValue(":oraArrivo",$oraArrivo);
+        $stm->bindValue(":data",$date);
+        $stm->bindValue(":partenza",$partenza);
+        $stm->bindValue(":arrivo",$arrivo);
+        $stm->bindValue(":posti",$passeggeri);
+        $stm->bindValue(":importo",$prezzo);
+        $stm->bindValue(":commento",$commento);
     
        if( $stm->execute())
       {
-     
-      header('location: automobile.php?success=1');
+          header('location:../index');
       }
          else
          {

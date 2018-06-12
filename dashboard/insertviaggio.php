@@ -2,6 +2,7 @@
 session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
+ date_default_timezone_set("Europe/Rome");
 /*if(!isset($_SESSION['user']))
 {
   header("location : ../index.php");
@@ -53,15 +54,15 @@ session_start();
 
     <script type="text/javascript">
       /* $(document).ready(function(){
-      		$('#dataViaggio').change(function(){
-               var data= $('#dataViaggio').val();
-                var oggi=<?php// echo json_encode(date("Y-m-d"));?>;
-                if(data=oggi)
-                  {
-                    $("#oraPartenza").attr("min",<?php //echo json_encode(date('H:i'));?>);
-                  }
-             });
-      });*/
+            		$('#dataViaggio').change(function(){
+                     var data= $('#dataViaggio').val();
+                      var oggi=<?php// echo json_encode(date("Y-m-d"));?>;
+                      if(data=oggi)
+                        {
+                          $("#oraPartenza").attr("min",<?php //echo json_encode(date('H:i'));?>);
+                        }
+                   });
+            });*/
     </script>
 
   </head>
@@ -105,41 +106,29 @@ session_start();
       <div id="fh5co-contact" class="container">
         <form action="#" method="POST" name="modulo">
           <div class="app-features text-center" id="cerca">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">In corso</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Realizzati</li>
-              </ol>
-            </nav>
-            <div class="container" >
+            
+            <div class="container">
 
 
 
-              <div  class="col-md-12 features-left" data-wow-delay="0.5s" style="padding-top: 0px;">
-                <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  </div>
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
 
+              <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
+                <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
                     <div id="datamsg" class="feature-single">
-                      <h1 class="lab">Quando viaggi?</h1>
-                       <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="oggi">
-                      <input  id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;">
-                     
+                      <h1 class="lab" style="text-transform:none">Quando viaggi?</h1>
+                      <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="oggi">
+                      <input id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;">
+
                     </div>
-                  </div>
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  </div>
                 </div>
-                <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                <div class="col-md-6 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                  </div>
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                    <div id="partenzamsg" class="feature-single">
-                      <h1 >Da dove parti?</h1>
-                      <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                      <div id="partenzamsg" class="feature-single">
+                        <h1 style="text-transform:none">Da dove parti?</h1>
+                        <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                                 <option ></option>
                                     <?php
                                     $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
@@ -155,29 +144,26 @@ session_start();
                                     } 
                                     ?>
                               </select>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                    <div id="oraPartenzamsg" class="feature-single">
-                      <h1>A che ore?</h1>
-                      <input id="oraPartenza" type="time" class="form-control" name="oraPartenza" value="" style="-webkit-appearance: none;">
-                     
+                      <div id="oraPartenzamsg" class="feature-single">
+                        <h1 style="text-transform:none">A che ore?</h1>
+                        <input id="oraPartenza" type="time" class="form-control" name="oraPartenza" value="" style="-webkit-appearance: none;">
+
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                   </div>
-                </div>
-                <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  --
+                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                  </div>
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                    <div id="arrivomsg" class="feature-single">
-                      <h1>Dove vai?</h1>
-                      <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                      <div id="arrivomsg" class="feature-single">
+                        <h1 style="text-transform:none">Dove vai?</h1>
+                        <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                                 <option ></option>
                                     <?php
                                     $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
@@ -193,79 +179,110 @@ session_start();
                                     } 
                                     ?>
                               </select>
+                      </div>
+                    </div>
+                    <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                      <div id="oraArrivomsg" class="feature-single">
+                        <h1 class="lab" style="text-transform:none;font-family:sans-serif">Ora stimata d'arrivo</h1>
+                        <input id="oraArrivo" type="time" class="form-control" placeholder="bla" name="oraArrivo" value="" style="-webkit-appearance: none;">
+
+                      </div>
+                    </div>
+                    <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+
                     </div>
                   </div>
-                  <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                    <div id="oraArrivomsg" class="feature-single">
-                      <h1 class="lab">Ora stimata d'arrivo</h1>
-                      <input id="oraArrivo" type="time" class="form-control" placeholder="bla" name="oraArrivo" value="" style="-webkit-appearance: none;">
-                      
-                    </div>
-                  </div>
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                  </div>
                 </div>
-                <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
-
+                <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  
+                  <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
+                    
+                  <div id="numPasseggeri">
+                    <h1 class="lab" style="text-transform:none">numero di passeggeri</h1>
+                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    </div>
+                    <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
+                      <input type="number" class="form-control" name="passeggeri" value="" style="-webkit-appearance: none;" min="1">
+                    </div>
+                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    </div>
                   </div>
-
-                  <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  </div>
+                    <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  
 
                     <div id="costo" class="feature-single">
-                      <h1 class="lab">Costo per passeggero (€) ?</h1>
-                      <input type="number" class="form-control" name="costo" value="" style="-webkit-appearance: none;" min="1">
+                      <h1 class="lab" style="text-transform:none">Costo per passeggero - €</h1>
+                      <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                      </div>
+                      <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
+                        <input type="number" class="form-control" name="costo" value="" style="-webkit-appearance: none;" min="1">
+                      </div>
+                      <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                      </div>
 
-                    </div>
                   </div>
-                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  </div>
+                  <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
 
-                    <div class="feature-single">
-                      <h1 class="lab">Lascia un commento agli altri utenti</h1>
-                      <textarea placeholder="(Opzionale)" type="textarea" class="form-control" name="commeto" value="" style="-webkit-appearance: none;resize: none;" rows="5" cols="10"></textarea>
-                      
-                    </div>
                   </div>
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+
+                </div>
+              </div>
+
+
+              <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                <div class="col-md-4 wow fadeInDown">
+                </div>
+                <div class="col-md-4 wow fadeInDown">
+                  <div class="feature-single">
+                    <h1 class="lab" style="text-transform:none">Lascia un commento agli altri utenti</h1>
+                    <textarea placeholder="(Opzionale)" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10"></textarea>
 
                   </div>
                 </div>
+                <div class="col-md-4 wow fadeInDown">
+                </div>
 
-                <div class="col-md-12 wow fadeInDown">
-                  <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
-                  </div>
-                  <div class="col-md-4 features-left" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown; padding-top:0px;">
-                    <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+              </div>
+
+              <div class="col-md-12 wow fadeInDown">
+                <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+                </div>
+                <div class="col-md-4 features-left" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown; padding-top:0px;">
+                  <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
 
 
 
-                      <div class='col-md-5' style="padding-top: 32px;float:left;">
-                        <div class='form-group text-center'>
-                          <input type='button' value='Crea' onClick="Controllo()" class="btn btn-primary btn-action btn-fill" name="crea">
-                        </div>
+                    <div class='col-md-5' style="padding-top: 32px;float:left;">
+                      <div class='form-group text-center'>
+                        <input type='button' value='Crea' onClick="Controllo()" class="btn btn-primary btn-action btn-fill" name="crea">
                       </div>
-                      <div class='col-md-2'>
+                    </div>
+                    <div class='col-md-2'>
 
-                      </div>
-                      <div class='col-md-5' style="padding-top: 32px;float:left;float:right;">
-                        <div class='form-group text-center heading-section'>
+                    </div>
+                    <div class='col-md-5' style="padding-top: 32px;float:left;float:right;">
+                      <div class='form-group text-center heading-section'>
 
-                          <div class='form-group'>
-                            <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
-                          </div>
-
-
+                        <div class='form-group'>
+                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
                         </div>
+
 
                       </div>
 
                     </div>
-                  </div>
-                  <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+
                   </div>
                 </div>
+                <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
+                </div>
+
               </div>
             </div>
           </div>

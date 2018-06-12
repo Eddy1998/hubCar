@@ -6,6 +6,7 @@ function Controllo() {
    var arrivo = document.modulo.arrivo.value;
    var oraArrivo = document.modulo.oraArrivo.value; 
   var costo=document.modulo.costo.value; 
+  var passeggeri=document.modulo.passeggeri.value;
   var oggi = document.modulo.oggi.value;
    
     if ((dataViaggio === "") || (dataViaggio === "undefined")) {
@@ -61,7 +62,14 @@ function Controllo() {
         document.modulo.oraArrivo.focus();
         return false;
     }
+     else if ((passeggeri === "") || (passeggeri === "undefined")) {
+        $('.correct').remove();
+      
+          $('#numPasseggeri').append("<p class='correct' class='row text-center' style='color:red;'>Inserire il numero di passeggeri</p>");
 
+        document.modulo.passeggeri.focus();
+        return false;
+    }
    else if ((costo === "") || (costo === "undefined")) {
         $('.correct').remove();
       
@@ -100,6 +108,7 @@ function Controllo() {
 
         document.modulo.costo.focus();
 	}
+ 
 	
   else {
         document.modulo.action = "../dashboard/create-travel";

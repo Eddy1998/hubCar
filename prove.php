@@ -35,6 +35,10 @@ $(document).ready(function(){
     </input>
     <p id="prend">Valordgdre</p>
     <input type="button" id="prendi" name="name" value="change" >
+  <?php 
+  date_default_timezone_set("Europe/Rome");
+  echo date("Y-m-d");
+  echo date("h:i:sa");?>
    
     </input> 
 </body>
