@@ -79,8 +79,8 @@ $dbh = new PDO($conn,$user,$pass);
 
             <div class="col-md-12">
               <div class="hero-content text-center">
-                <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi Pubblicati</h1>
-                <p class="wow fadeInUp" data-wow-delay="0.2s">Puoi visualizzare i viaggi già realizzati</p>
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi Prenotati</h1>
+                <p class="wow fadeInUp" data-wow-delay="0.2s">Puoi modificare le prenotazioni dei viaggi futuri</p>
               </div>
             </div>
           </div>

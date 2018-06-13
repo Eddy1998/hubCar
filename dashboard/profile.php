@@ -55,7 +55,7 @@ if(!isset($_SESSION['user']))
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand page-scroll" href="../index"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a>Profilo </div>
+            <a class="navbar-brand page-scroll" href="../index"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a></div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
