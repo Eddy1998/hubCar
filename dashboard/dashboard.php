@@ -93,13 +93,7 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
       <div class="app-features text-center" id="cerca">
         <div class="container">
           <form action="modprofile.php" method="POST">
-             <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">In corso</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Realizzati</li>
-                <li class="breadcrumb-item active" aria-current="page">Realizzati</li>
-              </ol>
-            </nav>
+             
           
             <div class="col-md-12 features-left">
                
@@ -136,7 +130,7 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
                 </div>
 
                 <div class="feature-single">
-                 <a href="#" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Viaggi Offerti</a>
+                 <a href="offers" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Viaggi Offerti</a>
                 </div>
               </div>
                  <div class="col-md-12 wow fadeInDown" data-wow-delay="0.4s">

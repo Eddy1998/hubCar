@@ -6,8 +6,8 @@ date_default_timezone_set("Europe/Rome");
 	include ('conn.inc.php');
 try{
            $dbh = new PDO($conn, $user, $pass);
-        // if (isset($_POST['offers'])) 
-        // {
+        if (isset($_POST['offers'])) 
+         {
                
                  $_SESSION['user']='9';
         
@@ -35,9 +35,9 @@ try{
                   
                     exit();
                     
-       // }
-       if (isset($_POST['offers_past'])) 
-       {
+        }
+       //if (isset($_POST['offers_past'])) 
+       //{
               $_SESSION['user']='9';
           //$arrivoT='Pisa';
                  // $partenzaT= 'Fireasze';
@@ -55,7 +55,7 @@ try{
                         while($row=$sqlu->fetch())
                         {   
 
-                            $jsondataT=$row;
+                            $jsondataT[]=$row;
                              echo json_encode($jsondataT);
                         }                         
                     }
@@ -65,7 +65,7 @@ try{
                    }
                     exit();
                   
-      }
+     // }
      if (isset($_POST['pass_in_travel'])) {
                   $vi='9';
                   $partenzaP= $_POST['partenza'];

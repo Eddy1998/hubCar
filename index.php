@@ -75,7 +75,7 @@
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
-    <div class="main app form" id="main">
+    <div id="main"  class="main app form" >
       <!-- Main Section-->
       <div class="hero-section">
         <div class="container nopadding">
@@ -374,7 +374,6 @@
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script src="js/jquery.subscribe.js"></script>
   </body>
 
   </html>

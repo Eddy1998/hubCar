@@ -3,10 +3,10 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-/*if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
 {
-  header("location : ../index.php");
-}*/
+  header("location : ../user/signin");
+}
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -52,18 +52,7 @@ session_start();
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/control-insert-viaggio.js"></script>
 
-    <script type="text/javascript">
-      /* $(document).ready(function(){
-            		$('#dataViaggio').change(function(){
-                     var data= $('#dataViaggio').val();
-                      var oggi=<?php// echo json_encode(date("Y-m-d"));?>;
-                      if(data=oggi)
-                        {
-                          $("#oraPartenza").attr("min",<?php //echo json_encode(date('H:i'));?>);
-                        }
-                   });
-            });*/
-    </script>
+    
 
   </head>
 
@@ -156,7 +145,7 @@ session_start();
                     </div>
 
                   </div>
-                  --
+                 
                   <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
