@@ -135,7 +135,7 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
               </div>
                  <div class="col-md-12 wow fadeInDown" data-wow-delay="0.4s">
                 <div class="feature-single">
-                 <a href="#" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Prenotati</a>
+                 <a href="book" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Prenotazioni</a>
 
                 </div>
                          
@@ -162,16 +162,7 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
       </div>
 
         <!-- Footer Section -->
-        <div class="footer">
-          <div class="container">
-            <div class="col-md-12"> <img src="../logo/logo.png" width="105" height="30" alt="Image" />
-              <div class="footer-text">
-                <p> Copyright © 2018 hubCar Tutti i diritti riservati.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        
       </div>
 
       <!-- Scroll To Top -->

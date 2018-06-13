@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
+{
+   header("location: ../user/signin");
+}
 include '../data/conn.inc.php';
 $dbh = new PDO($conn,$user,$pass);
  date_default_timezone_set("Europe/Rome");
@@ -46,6 +50,7 @@ $dbh = new PDO($conn,$user,$pass);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/data-book-past.js"></script>
    
    
 
@@ -63,7 +68,7 @@ $dbh = new PDO($conn,$user,$pass);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a class="page-scroll" href="index">Home</a></li>
+                <li><a class="page-scroll" href="../index">Home</a></li>
               </ul>
             </div>
           </div>
@@ -79,8 +84,8 @@ $dbh = new PDO($conn,$user,$pass);
 
             <div class="col-md-12">
               <div class="hero-content text-center">
-                <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Viaggi Prenotati</h1>
-                <p class="wow fadeInUp" data-wow-delay="0.2s">Puoi visualizzare i tuoi viaggi realizzati</p>
+                <h1 class="wow fadeInUp" data-wow-delay="0.1s" style="font-size:35px;font-family:sans-serif;">Prenotazioni passate</h1>
+                <p class="wow fadeInUp" data-wow-delay="0.2s">Puoi visualizzare i viaggi già realizzati</p>
               </div>
             </div>
           </div>
@@ -93,27 +98,21 @@ $dbh = new PDO($conn,$user,$pass);
     </div>
         <div id="pricing" class="pricing-section text-center" style="padding-top: 0px;">
           <div class="container">
+              <div class="col-md-12 feature-single">
+                 <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb wow fadeInUp" style="background-color:#ffffff;">
+                        <li class="breadcrumb-item  wow fadeInUp" style='font-size: 18px;font-weight: 600; color:#f3f3f3;margin-bottom: 30px;font-family:sans-serif' aria-current="page"><a href="dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item  wow fadeInUp" style='font-size: 18px;font-weight: 600; color:#f3f3f3;margin-bottom: 30px;font-family:sans-serif' aria-current="page"><a href="book">Prenotazioni in corso</a></li>
+                        <li class="breadcrumb-item wow fadeInUp active" style='font-size: 18px;font-weight: 600; color: #1eb858;margin-bottom: 30px;font-family:sans-serif'>Prenotazioni passate</li>
+
+                    </ol>
+                </nav>
+              </div>
             <div id="viaggi" class="col-md-12 col-sm-12 nopadding ">
+             
              <ul>
-               <li>
-                 <form action='prove' method='POST'><div class='col-sm-' style='float:center;'>
-                          <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>
-                          <span >Citta cittaa citta - a citta citta citta</span><br>
-                             <span >ora partenza</span><br> <span ></span>
-                            <span >Prezzo: "molto"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Visualizza</button>
-                              </div> </div></div> 
-              </form>
-               </li>
-               <li>
-                <form action='prove' method='POST'><div class='col-sm-' style='float:center;'>
-                          <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>
-                           <h2>Data :</h2> <span >some</span><br>
-                             <span >someew</span><br> <span >se"</span>
-                              <h2>Dati Conducente :</h2> <span >se"</span><br>
-                            <span >Prezzo: "molto"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Pr</button>
-                              </div> </div></div> 
-              </form>
-               </li>
+               
+               
               </ul>
         
           

@@ -9,8 +9,7 @@ try{
         if (isset($_POST['offers'])) 
          {
                
-                 $_SESSION['user']='9';
-        
+
                   $jsondataT=array();
 
                   $data=date("Y-m-d");
@@ -36,11 +35,9 @@ try{
                     exit();
                     
         }
-       //if (isset($_POST['offers_past'])) 
-       //{
-              $_SESSION['user']='9';
-          //$arrivoT='Pisa';
-                 // $partenzaT= 'Fireasze';
+       if (isset($_POST['offers_past'])) 
+       {
+             
                   $jsondataT=array();
 
                   $data=date("Y-m-d");
@@ -65,11 +62,11 @@ try{
                    }
                     exit();
                   
-     // }
+      }
      if (isset($_POST['pass_in_travel'])) {
-                  $vi='9';
-                  $partenzaP= $_POST['partenza'];
-         // $partenzaP='Pisa';
+                  $vi=$_POST['viaggio'];
+                 
+        
 
                   $jsondata=array();
                   $sql =$dbh->prepare("SELECT u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita  FROM utente u inner join prenotazione p on u.idUtente=p.idUtente inner join viaggio v on v.idViaggio=p.idViaggio  WHERE v.idViaggio=:idViaggio");
@@ -90,22 +87,22 @@ try{
                      }
                       exit();
         }
-        if (isset($_POST['book'])) {
-
+       if (isset($_POST['book'])) {
+                    
                      
                        $data=date("Y-m-d");
 
                       $jsondata=array();
                       $sql =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from utente u inner join prenotazione p on p.idUtente=u.idUtente inner join viaggio v on v.idViaggio=p.idViaggio WHERE u.idUtente=:id AND v.data>:data  ORDER BY data, oraPartenza ASC");
                       $sql->bindValue(":id", $_SESSION['user']);
-                       $sqlu->bindValue(":data", $data);
+                       $sql->bindValue(":data", $data);
                          $sql->execute();
                         if ($sql->rowCount()>0)
                         {
 
                             while($row=$sql->fetch())
                             {
-                                $jsondata=$row;  
+                                $jsondata[]=$row;  
                             }
                                echo json_encode($jsondata);
                           }
@@ -123,14 +120,14 @@ try{
                       $jsondata=array();
                       $sql =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from utente u inner join prenotazione p on p.idUtente=u.idUtente inner join viaggio v on v.idViaggio=p.idViaggio WHERE u.idUtente=:id AND v.data<:data  ORDER BY data, oraPartenza DESC");
                       $sql->bindValue(":id", $_SESSION['user']);
-                       $sqlu->bindValue(":data", $data);
+                       $sql->bindValue(":data", $data);
                          $sql->execute();
                         if ($sql->rowCount()>0)
                         {
 
                             while($row=$sql->fetch())
                             {
-                                $jsondata=$row;  
+                                $jsondata[]=$row;  
                             }
                                echo json_encode($jsondata);
                           }
@@ -139,7 +136,7 @@ try{
                                echo json_encode("not_found");
                          }
                           exit();
-            }
+           }
 
   } 
   catch (PDOException $e) {
