@@ -111,9 +111,7 @@ $id=$_REQUEST['idviaggio'];
                     <h2 id="data"></h2>
                     
                   </div>
-                </div>
-                <div class="col-md-6 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                    <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
@@ -156,6 +154,9 @@ $id=$_REQUEST['idviaggio'];
 
                     </div>
                   </div>
+                </div>
+                <div class="col-md-6 wow fadeInDown text-center" data-wow-delay="0.2s">
+                
 
 
                 </div>
