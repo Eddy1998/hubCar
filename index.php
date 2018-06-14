@@ -62,7 +62,7 @@
           <ul class="nav navbar-nav">
             <li><a class="page-scroll" href="#main">Home</a></li>
             <li><a class="page-scroll" href="#cerca">Cerca</a></li>
-            <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
+            <li><a class="page-scroll" href="dashboard/insertviaggio">Aggiungi viaggio</a></li>
             <li>
               <a class="page-scroll" href="dashboard/dashboard.php">
                 Dashboard </a>

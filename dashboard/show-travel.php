@@ -3,10 +3,11 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-if(!isset($_SESSION['user']))
+/*if(!isset($_SESSION['user']))
 {
   header("location : ../user/signin");
-}
+}*/
+$id=$_REQUEST['idviaggio'];
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -50,9 +51,9 @@ if(!isset($_SESSION['user']))
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/control-insert-viaggio.js"></script>
+    <script type="text/javascript" src="../js/show-travel.js"></script>
 
-    
+
 
   </head>
 
@@ -85,7 +86,7 @@ if(!isset($_SESSION['user']))
         <div class="container nopadding">
           <div class="col-md-12">
             <div class="hero-content text-center">
-              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Crea un Viaggio </h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Il tuo viaggio</h1>
             </div>
           </div>
         </div>
@@ -93,9 +94,9 @@ if(!isset($_SESSION['user']))
 
       <!-- Client Section -->
       <div id="fh5co-contact" class="container">
-        <form action="#" method="POST" name="modulo">
+        <form action="mod-travel" method="POST" name="modulo">
           <div class="app-features text-center" id="cerca">
-            
+
             <div class="container">
 
 
@@ -103,12 +104,13 @@ if(!isset($_SESSION['user']))
 
               <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
-                    <div id="datamsg" class="feature-single">
-                      <h1 class="lab" style="text-transform:none">Quando viaggi?</h1>
-                      <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="oggi">
-                      <input id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;">
-
-                    </div>
+                  <div id="datamsg" class="feature-single">
+                    <input type='hidden' name='idViaggio' value="<?php echo $id;?>">
+                    <h1 class="lab" style="text-transform:none">Data del viaggio</h1>
+                    <input id="data2" type="hidden" value="" name="data">
+                    <h2 id="data"></h2>
+                    
+                  </div>
                 </div>
                 <div class="col-md-6 wow fadeInDown text-center" data-wow-delay="0.2s">
                   <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
@@ -116,66 +118,38 @@ if(!isset($_SESSION['user']))
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                       <div id="partenzamsg" class="feature-single">
-                        <h1 style="text-transform:none">Da dove parti?</h1>
-                        <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
-                                <option ></option>
-                                    <?php
-                                    $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
-                                    $stm->execute();
-                                     if($stm->rowCount()>0)
-                                    {
-
-                                      while($row= $stm->fetch())
-                                      {
-                                        ?>
-                                          <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
-                                     <?php }
-                                    } 
-                                    ?>
-                              </select>
+                        <h1 style="text-transform:none">Luogo partenza</h1>
+                        <h2 id="partenza"></h2>
+                        <input id="partenza2" type="hidden" value="" name="partenza">
                       </div>
                     </div>
                     <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                       <div id="oraPartenzamsg" class="feature-single">
-                        <h1 style="text-transform:none">A che ore?</h1>
-                        <input id="oraPartenza" type="time" class="form-control" name="oraPartenza" value="" style="-webkit-appearance: none;">
-
+                        <h1 style="text-transform:none">Ora partenza</h1>
+                        <h2 id="oraPartenza"></h2>
+                        <input id="oraPartenza2" type="hidden" value="" name="oraPartenza">
                       </div>
                     </div>
 
                   </div>
-                 
+
                   <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                       <div id="arrivomsg" class="feature-single">
-                        <h1 style="text-transform:none">Dove vai?</h1>
-                        <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
-                                <option ></option>
-                                    <?php
-                                    $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
-                                    $stm->execute();
-                                     if($stm->rowCount()>0)
-                                    {
-
-                                      while($row= $stm->fetch())
-                                      {
-                                        ?>
-                                          <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
-                                     <?php }
-                                    } 
-                                    ?>
-                              </select>
+                        <h1 style="text-transform:none">Luogo d'arrivo</h1>
+                        <h2 id="arrivo"></h2>
+                        <input id="arrivo2" name="arrivo" type="hidden" value="">
                       </div>
                     </div>
                     <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                       <div id="oraArrivomsg" class="feature-single">
-                        <h1 class="lab" style="text-transform:none;font-family:sans-serif">Ora stimata d'arrivo</h1>
-                        <input id="oraArrivo" type="time" class="form-control" placeholder="bla" name="oraArrivo" value="" style="-webkit-appearance: none;">
-
+                        <h1 class="lab" style="text-transform:none;">Ora stimata d'arrivo</h1>
+                        <h2 id="oraArrivo"> </h2>
+                        <input id="oraArrivo2" name="oraArrivo" type="hidden" value="">
                       </div>
                     </div>
                     <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
@@ -186,34 +160,36 @@ if(!isset($_SESSION['user']))
 
                 </div>
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  
+
                   <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
-                    
-                  <div id="numPasseggeri">
-                    <h1 class="lab" style="text-transform:none">numero di passeggeri</h1>
-                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
-                    </div>
-                    <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                      <input type="number" class="form-control" name="passeggeri" value="" style="-webkit-appearance: none;" min="1">
-                    </div>
-                    <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+
+                    <div id="numPasseggeri">
+                      <h1 class="lab" style="text-transform:none">Posti disponibili</h1>
+                      <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                      </div>
+                      <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
+                        <h2 id="passeggeri"></h2>
+                        <input id="passeggeri2" type="hidden" class="form-control" name="passeggeri" value="" min="1">
+                      </div>
+                      <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
+                      </div>
                     </div>
                   </div>
-                  </div>
-                    <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                  
+                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+
 
                     <div id="costo" class="feature-single">
                       <h1 class="lab" style="text-transform:none">Costo per passeggero - €</h1>
                       <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                       </div>
                       <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                        <input type="number" class="form-control" name="costo" value="" style="-webkit-appearance: none;" min="1">
+                        <h2 id="importo"></h2>
+                        <input id="importo2" type="hidden" class="form-control" name="costo" value="" min="1">
                       </div>
                       <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                       </div>
 
-                  </div>
+                    </div>
                   </div>
                   <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
 
@@ -229,8 +205,9 @@ if(!isset($_SESSION['user']))
                 </div>
                 <div class="col-md-4 wow fadeInDown">
                   <div class="feature-single">
-                    <h1 class="lab" style="text-transform:none">Lascia un commento per i passeggeri</h1>
-                    <textarea placeholder="(Opzionale)" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10"></textarea>
+                    <h1 class="lab" style="text-transform:none">Commento per i passeggeri</h1>
+
+                    <textarea id="commento" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10" readonly></textarea>
 
                   </div>
                 </div>
@@ -243,31 +220,28 @@ if(!isset($_SESSION['user']))
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
                 </div>
                 <div class="col-md-4 features-left" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown; padding-top:0px;">
-                  <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
 
-
-
-                    <div class='col-md-5' style="padding-top: 32px;float:left;">
-                      <div class='form-group text-center'>
-                        <input type='button' value='Crea' onClick="Controllo()" class="btn btn-primary btn-action btn-fill" name="crea">
-                      </div>
+                  <div class='col-md-5' style="padding-top: 32px;float:left;">
+                    <div class='form-group text-center'>
+                      <input type='submit' value='Modifica' class="btn btn-primary btn-action btn-fill" name="Modifica">
                     </div>
-                    <div class='col-md-2'>
+                  </div>
+                  <div class='col-md-2'>
 
-                    </div>
-                    <div class='col-md-5' style="padding-top: 32px;float:left;float:right;">
-                      <div class='form-group text-center heading-section'>
+                  </div>
+                  <div class='col-md-5' style="padding-top: 32px;float:right;">
+                    <div class='form-group text-center heading-section'>
 
-                        <div class='form-group'>
-                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
-                        </div>
-
-
+                      <div class='form-group'>
+                        <input id="bottonedanger" type='button' value='Elimina' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
                       </div>
+
 
                     </div>
 
                   </div>
+
+
                 </div>
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
                 </div>

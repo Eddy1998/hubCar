@@ -3,10 +3,18 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-if(!isset($_SESSION['user']))
+/*if(!isset($_SESSION['user']))
 {
   header("location : ../user/signin");
-}
+}*/
+$dataviaggio=$_POST['data'];
+$partenza=$_POST['partenza'];
+$orapartenza=$_POST['oraPartenza'];
+$arrivo=$_POST['arrivo'];
+$oarrivo=$_POST['oraArrivo'];
+$posti=$_POST['passeggeri'];
+$costo=$_POST['costo'];
+$commento=$_POST['commento'];
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -85,7 +93,7 @@ if(!isset($_SESSION['user']))
         <div class="container nopadding">
           <div class="col-md-12">
             <div class="hero-content text-center">
-              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Crea un Viaggio </h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s">Modifica il tuo viaggio </h1>
             </div>
           </div>
         </div>
@@ -106,7 +114,7 @@ if(!isset($_SESSION['user']))
                     <div id="datamsg" class="feature-single">
                       <h1 class="lab" style="text-transform:none">Quando viaggi?</h1>
                       <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="oggi">
-                      <input id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;">
+                      <input id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;" value="<?php echo $dataviaggio ;?>">
 
                     </div>
                 </div>
@@ -117,7 +125,7 @@ if(!isset($_SESSION['user']))
 
                       <div id="partenzamsg" class="feature-single">
                         <h1 style="text-transform:none">Da dove parti?</h1>
-                        <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                        <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;" value="<?php echo  $partenza;?>">
                                 <option ></option>
                                     <?php
                                     $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
@@ -139,7 +147,7 @@ if(!isset($_SESSION['user']))
 
                       <div id="oraPartenzamsg" class="feature-single">
                         <h1 style="text-transform:none">A che ore?</h1>
-                        <input id="oraPartenza" type="time" class="form-control" name="oraPartenza" value="" style="-webkit-appearance: none;">
+                        <input id="oraPartenza" type="time" class="form-control" name="oraPartenza" value="<?php echo $orapartenza ;?>" style="-webkit-appearance: none;">
 
                       </div>
                     </div>
@@ -152,7 +160,7 @@ if(!isset($_SESSION['user']))
 
                       <div id="arrivomsg" class="feature-single">
                         <h1 style="text-transform:none">Dove vai?</h1>
-                        <select name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                        <select id="arrivo" name="arrivo" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
                                 <option ></option>
                                     <?php
                                     $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
@@ -168,13 +176,18 @@ if(!isset($_SESSION['user']))
                                     } 
                                     ?>
                               </select>
+                        <script>
+                          $(document).ready(function(){
+                            $('#arrivo').val(<?php echo $arrivo;?>);
+                          });
+                        </script>
                       </div>
                     </div>
                     <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                       <div id="oraArrivomsg" class="feature-single">
                         <h1 class="lab" style="text-transform:none;font-family:sans-serif">Ora stimata d'arrivo</h1>
-                        <input id="oraArrivo" type="time" class="form-control" placeholder="bla" name="oraArrivo" value="" style="-webkit-appearance: none;">
+                        <input id="oraArrivo" type="time" class="form-control" placeholder="bla" name="oraArrivo" value="<?php echo $oarrivo;?>" style="-webkit-appearance: none;">
 
                       </div>
                     </div>
@@ -194,7 +207,7 @@ if(!isset($_SESSION['user']))
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
                     <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                      <input type="number" class="form-control" name="passeggeri" value="" style="-webkit-appearance: none;" min="1">
+                      <input type="number" class="form-control" name="passeggeri" value="<?php echo  $posti;?>" style="-webkit-appearance: none;" min="1">
                     </div>
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
@@ -208,7 +221,7 @@ if(!isset($_SESSION['user']))
                       <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                       </div>
                       <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                        <input type="number" class="form-control" name="costo" value="" style="-webkit-appearance: none;" min="1">
+                        <input type="number" class="form-control" name="costo"value="<?php echo  $costo;?>" style="-webkit-appearance: none;" min="1">
                       </div>
                       <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                       </div>
@@ -230,7 +243,7 @@ if(!isset($_SESSION['user']))
                 <div class="col-md-4 wow fadeInDown">
                   <div class="feature-single">
                     <h1 class="lab" style="text-transform:none">Lascia un commento per i passeggeri</h1>
-                    <textarea placeholder="(Opzionale)" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10"></textarea>
+                    <textarea placeholder="(Opzionale)" type="textarea" class="form-control" name="commento" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10"><?php echo $commento;?></textarea>
 
                   </div>
                 </div>
@@ -249,7 +262,7 @@ if(!isset($_SESSION['user']))
 
                     <div class='col-md-5' style="padding-top: 32px;float:left;">
                       <div class='form-group text-center'>
-                        <input type='button' value='Crea' onClick="Controllo()" class="btn btn-primary btn-action btn-fill" name="crea">
+                        <input type='button' value='Modifica' onClick="Controllo()" class="btn btn-primary btn-action btn-fill" name="crea">
                       </div>
                     </div>
                     <div class='col-md-2'>

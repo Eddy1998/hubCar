@@ -1,4 +1,7 @@
 
+<?php
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,16 +33,10 @@ $(document).ready(function(){
 
 <body>
   
-    <input id="ciao" name="prova" >
-      
-    </input>
-    <p id="prend">Valordgdre</p>
-    <input type="button" id="prendi" name="name" value="change" >
-  <?php 
-  date_default_timezone_set("Europe/Rome");
-  echo date("Y-m-d");
-  echo date("h:i:sa");?>
+ <form methor='POST' action="prove2">
+   <input type="hidden" value="9" name="valore">
    
-    </input> 
+   <input type='submit' value="Ciao">
+  </form>
 </body>
 </html>

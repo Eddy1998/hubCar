@@ -6,10 +6,9 @@ date_default_timezone_set("Europe/Rome");
 	include ('conn.inc.php');
 try{
            $dbh = new PDO($conn, $user, $pass);
-        if (isset($_POST['offers'])) 
-         {
+       if (isset($_POST['offers'])) 
+        {
                
-
                   $jsondataT=array();
 
                   $data=date("Y-m-d");
@@ -35,6 +34,7 @@ try{
                     exit();
                     
         }
+  
        if (isset($_POST['offers_past'])) 
        {
              
@@ -137,6 +137,36 @@ try{
                          }
                           exit();
            }
+         if (isset($_POST['travel_data'])) 
+         {
+                  $vi=$_POST['idViaggio'];
+
+                  $jsondata=array();
+
+                  $data=date("Y-m-d");
+                  $sqlu =$dbh->prepare("SELECT *,DATE_FORMAT(data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( oraArrivo,  '%H:%i' ) AS oArrivo from viaggio where idAutista=:idAutista AND idViaggio=:idViaggio LIMIT 1");
+                
+                   $sqlu->bindValue(":idAutista", $_SESSION['user']); 
+                    
+                    $sqlu->bindValue(":idViaggio", $vi);
+                     $sqlu->execute();
+                    if ($sqlu->rowCount()>0)
+                    { 
+                        while($row=$sqlu->fetch())
+                        {   
+
+                            $jsondata[]=$row;
+                        }                         
+                             echo json_encode($jsondata);
+                    }
+                   else
+                   {  
+                        echo json_encode("not_found");
+                   }
+                  
+                    exit();
+                    
+        }
 
   } 
   catch (PDOException $e) {

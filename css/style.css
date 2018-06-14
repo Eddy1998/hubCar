@@ -1859,8 +1859,9 @@ button.btn.active:focus {
 .pricing-intro h1 {
   font-size: 28px;
   color: #111111;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
+  font-family: sans-serif;
 }
 
 .pricing-intro p {
