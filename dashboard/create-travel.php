@@ -36,11 +36,11 @@ try{
     
        if( $stm->execute())
       {
-          //header('location: offers.php?success=1');
+          header('location: offers.php?success=1');
       }
          else
          {
-          // header('location: offers.php?err=1');
+           header('location: offers.php?err=1');
          }
   
   
@@ -48,7 +48,7 @@ try{
   
    } 
   catch (PDOException $e) {
-   // header('location: automobile.php?err=1');
+   header('location: offers.php?err=1');
     
     
   }

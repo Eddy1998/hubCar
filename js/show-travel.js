@@ -1,5 +1,7 @@
 $(document).ready(function(){
 var idViaggio=document.modulo.idViaggio.value;
+    var d = new Date();
+    var anno = d.getFullYear();
      $.post( "../data/travel.php",{'travel_data': 1,'idViaggio': idViaggio}, function(response) {
       
       var data= response[0].dataviaggio;
@@ -26,6 +28,36 @@ var idViaggio=document.modulo.idViaggio.value;
        $('#importo2').val(prezzo);
        $('#commento').append(commento);
 
+       var idDriver= response[0].idAutista;
+        $.post( "../data/data-driver.php",{'data_driver': 1,'idDriver': idDriver}, function(risposta) {
+               
+                  var nome =risposta.user.nome;
+                  var nascita=risposta.user.dataNascita;
+                    var datareg= risposta.user.dataregistrazione;
+                  var automobile;
+                 var arr = nascita.split("/");
+                    var aaaa=arr[2];
+                    var eta = anno-aaaa;
+                   if(risposta.user.automobile==='no')
+                    {
+                      automobile="Nessun automobile registrato"
+                       $('#auto').append(automobile);
+                    }
+                  else
+                    {
+                     for(i=0;i<risposta.user.automobile.length;i++)
+                        {
+                          automobile=risposta.user.automobile[i].marca+", "+risposta.user.automobile[i].modello;
+                          $('#auto').append(automobile);
+                        }
+                    }
+          $('#nome').append(nome+", "+eta+" anni");
+         
+          $('#dataregistrazione').append(datareg);
+
+        },'json');
+       
        },'json');
+       
 
 	});		

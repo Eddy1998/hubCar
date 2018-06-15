@@ -194,7 +194,14 @@ if(!isset($_SESSION['user']))
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
                     <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                      <input type="number" class="form-control" name="passeggeri" value="" style="-webkit-appearance: none;" min="1">
+                      <select class="form-control" name="passeggeri" value="" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                        <option></option>
+                        <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                      </select>
+                     
                     </div>
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>

@@ -144,7 +144,7 @@ try{
                   $jsondata=array();
 
                   $data=date("Y-m-d");
-                  $sqlu =$dbh->prepare("SELECT *,DATE_FORMAT(data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( oraArrivo,  '%H:%i' ) AS oArrivo from viaggio where idAutista=:idAutista AND idViaggio=:idViaggio LIMIT 1");
+                  $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from viaggio v where v.idAutista=:idAutista AND idViaggio=:idViaggio LIMIT 1");
                 
                    $sqlu->bindValue(":idAutista", $_SESSION['user']); 
                     

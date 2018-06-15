@@ -52,6 +52,7 @@ $id=$_REQUEST['idviaggio'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/show-travel.js"></script>
+    
 
 
 
@@ -104,14 +105,18 @@ $id=$_REQUEST['idviaggio'];
 
               <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  
                   <div id="datamsg" class="feature-single">
                     <input type='hidden' name='idViaggio' value="<?php echo $id;?>">
-                    <h1 class="lab" style="text-transform:none">Data del viaggio</h1>
+                    <h1 class="lab" style="text-transform:none">Data</h1>
                     <input id="data2" type="hidden" value="" name="data">
                     <h2 id="data"></h2>
                     
                   </div>
-                    <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                   
+                </div>
+                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                     <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
 
@@ -155,14 +160,8 @@ $id=$_REQUEST['idviaggio'];
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6 wow fadeInDown text-center" data-wow-delay="0.2s">
-                
-
-
-                </div>
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
-
-                  <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
+                      <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
 
                     <div id="numPasseggeri">
                       <h1 class="lab" style="text-transform:none">Posti disponibili</h1>
@@ -196,26 +195,56 @@ $id=$_REQUEST['idviaggio'];
 
                   </div>
 
+          
 
                 </div>
-              </div>
-
-
-              <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                <div class="col-md-4 wow fadeInDown">
+                
+                 <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
+                <div class="col-md-3 wow fadeInDown">
                 </div>
-                <div class="col-md-4 wow fadeInDown">
+                <div class="col-md-3 wow fadeInDown">
                   <div class="feature-single">
-                    <h1 class="lab" style="text-transform:none">Commento per i passeggeri</h1>
+                    <h1 class="lab" style="text-transform:none;">Commento per i passeggeri</h1>
 
-                    <textarea id="commento" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;" rows="5" cols="10" readonly></textarea>
+                    <textarea id="commento" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;background-color: white;" rows="5" cols="10" readonly></textarea>
 
                   </div>
                 </div>
-                <div class="col-md-4 wow fadeInDown">
+                <div class="col-md-3 wow fadeInDown">
+                </div>
+                 <div class="col-md-3 wow fadeInDown">
                 </div>
 
               </div>
+                <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                   <div class="feature-single">
+                    <h1>Conducente</h1>
+                   <div class="feature-single">
+                     <h2 id="nome"></h2>
+                  </div>
+                       <div class="feature-single">
+                       <h1  class="lab" style="text-transform:none">Utente dal</h1>
+                          <h2 id="dataregistrazione"></h2>   
+                  </div>
+                  </div>
+                   <div class="feature-single">
+                    <h1>Automobile</h1>
+                   <div class="feature-single">
+                     <h2 id="auto" > </h2>
+                  </div>
+                       
+                         
+                  </div>
+                  </div>
+                </div>
+               
+              </div>
+              <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
+                word new
+              </div>
+
+
+              
 
               <div class="col-md-12 wow fadeInDown">
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">

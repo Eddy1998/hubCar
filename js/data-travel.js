@@ -1,6 +1,8 @@
 $(document).ready(function(){
   var partenza;
   var arrivo;
+   var d = new Date();
+    var anno = d.getFullYear();
             //messaggio viaggio non trovato
             var mess="<div class='app-features text-center'> <div class='container'><div id='fh5co-contact' class='wow fadeInUp'><div class='col-md-12 wow fadeInDown'>";
            var mess1="<div class='col-md-12 wow fadeInDown text-center' data-wow-delay='0.2s'> <div class='pitch-content text-center'> <h1>Nessun viaggio trovato</h1>";
@@ -10,17 +12,27 @@ $(document).ready(function(){
             //fine messaggio
   if(($('#partenza').length)&&$('#arrivo').length===0)
     {
+      
       var partenzaP=$('#partenza').val();
      $.post( "data/datatravel.php",{'partenza_check': 1,'partenza':partenzaP}, function(response) {
+      
+     
           if(response==="not_found") 
             {
               $('#viaggi').append(messtotal);
             }
               else
              {
+                
+              
                var posti;
                for(i=0;i<response.length;i++)
                  {
+                    var arr = response[i].dataNascita.split("/");
+                      var aaaa=arr[2];
+                      var nascita= anno-aaaa;
+                 
+                   
                    if(response[i].posti===1)
                      {
                         posti=response[i].posti+" posto disponibile";
@@ -33,7 +45,7 @@ $(document).ready(function(){
                          var s=" <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>";
                             var data="<h2>Data :</h2> <span >"+response[i].dataviaggio+"</span><br>";
                              var viaggio=" <span >"+response[i].partenza+" - "+response[i].oPartenza+"</span><br> <span >"+response[i].arrivo+" - "+response[i].oArrivo+"</span>";
-                              var aut=" <h2>Dati Conducente :</h2> <span >"+response[i].nome+", "+response[i].dataNascita+"</span><br>";
+                              var aut=" <h2>Dati Conducente :</h2> <span >"+response[i].nome+", "+nascita+" anni</span><br>";
                              var prex="<span >Prezzo: "+response[i].importo+"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Prenota</button>";
                               var las="</div> </div></div> </form>";
                    var total=p+s+data+viaggio+aut+prex+las;

@@ -4,11 +4,10 @@ session_start();
 	include ('conn.inc.php');
 try{
   $dbh = new PDO($conn, $user, $pass);
-  	
-      if(isset($_SESSION['user'])&&isset($_SESSION['username']))
-      {
+  	if(isset($_POST['data_driver']))
+    {
         $jsondata=array();
-        $username = $_SESSION['user'];
+        $username = $_POST['idDriver'];
   	    $sql =$dbh->prepare("SELECT idUtente, cognome, nome, email,username, sesso, nazionalita, telefono,dataNascita,dataregistrazione, patente FROM utente  WHERE idUtente=:user");
   	    $sql->bindValue(":user", $username);
 	      $sql->execute();
@@ -34,8 +33,8 @@ try{
        
         echo json_encode($jsondata);
   	     exit();
-      }
-     
+      
+}
   	
   }
   catch (PDOException $e) {
