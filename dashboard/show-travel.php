@@ -240,39 +240,19 @@ $id=$_REQUEST['idviaggio'];
                 </div>
                
               </div>
-              <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
-                <table>
-                  
-                  <tr><th><div class="feature-single">
-                    <h1>Conducente</h1>
-                   <div class="feature-single">
-                     <h2 id="auto" > </h2>
+              <div id="compagni" class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s" >
+                <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s" >
+                </div>
+                  <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s" >
+                    <div class="feature-single">
+                      <h1 style='color:#1eb858'>Conducente</h1>
+                      <div class="feature-single">
+                       <h2 id="conducente"></h2>
+                      </div>
+                    </div>
                   </div>
-                       
-                         
-                  </div></th>
-                  <th><div class="feature-single">
-                    <h1>Passeggero</h1>
-                   <div class="feature-single">
-                     <h2 id="auto" > </h2>
-                  </div>
-                       
-                         
-                  </div></th>
-                  <th>3</th>
-                  <th>4</th>
-                  <th>5</th></tr>
-                  <tr><td><div class="feature-single">
-                    <h1>Automobile</h1>
-                   <div class="feature-single">
-                     <h2 id="auto" > </h2>
-                  </div>
-                       
-                         
-                  </div></td></tr>
-                </table>
-                
-                 </div>
+
+              </div>
 
 
               
@@ -294,7 +274,7 @@ $id=$_REQUEST['idviaggio'];
                     <div class='form-group text-center heading-section'>
 
                       <div class='form-group'>
-                        <input id="bottonedanger" type='button' value='Elimina' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
+                        <input id="bottonedanger" type='button' value='Elimina'  class="btn btn-danger btn-action btn-fill">
                       </div>
 
 

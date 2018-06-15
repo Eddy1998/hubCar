@@ -190,7 +190,7 @@ if(!isset($_SESSION['user']))
                   <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
                     
                   <div id="numPasseggeri">
-                    <h1 class="lab" style="text-transform:none">numero di passeggeri</h1>
+                    <h1 class="lab" style="text-transform:none">Posti disponibili</h1>
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
                     <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">

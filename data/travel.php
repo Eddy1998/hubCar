@@ -6,9 +6,9 @@ date_default_timezone_set("Europe/Rome");
 	include ('conn.inc.php');
 try{
            $dbh = new PDO($conn, $user, $pass);
-      // if (isset($_POST['offers'])) 
-       // {
-               $_SESSION['user']='9';
+       if (isset($_POST['offers'])) 
+        {
+              
                   $jsondataT=array();
 
                   $data=date("Y-m-d");
@@ -33,7 +33,7 @@ try{
                   
                     exit();
                     
-      //  }
+        }
   
        if (isset($_POST['offers_past'])) 
        {
@@ -65,9 +65,7 @@ try{
       }
      if (isset($_POST['pass_in_travel'])) {
                   $vi=$_POST['viaggio'];
-                 
-        
-
+                   
                   $jsondata=array();
                   $sql =$dbh->prepare("SELECT u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita  FROM utente u inner join prenotazione p on u.idUtente=p.idUtente inner join viaggio v on v.idViaggio=p.idViaggio  WHERE v.idViaggio=:idViaggio");
                   $sql->bindValue(":idViaggio", $vi);
@@ -77,7 +75,7 @@ try{
 
                         while($row=$sql->fetch())
                         {
-                            $jsondata=$row;  
+                            $jsondata[]=$row;  
                         }
                            echo json_encode($jsondata);
                       }

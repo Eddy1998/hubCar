@@ -7,6 +7,7 @@ session_start();
 {
   header("location : ../user/signin");
 }*/
+$id=$_POST['idViaggio'];
 $dataviaggio=$_POST['data'];
 $partenza=$_POST['partenza'];
 $orapartenza=$_POST['oraPartenza'];
@@ -59,7 +60,39 @@ $commento=$_POST['commento'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/control-insert-viaggio.js"></script>
-
+    <script type="text/javascript" >
+         $.post( "../data/travel.php",{'pass_in_travel': 1,'viaggio': <?php echo $id;?>}, function(ans) {
+         
+              if(ans==='not_found'){
+                for(i=1;i<5;i++)
+                  {
+                    if(i==1)
+                      {
+                        $('#postidis').append('<option value="'+i+'" selected="selected">'+i+'</option>');
+                      }
+                    else
+                    {
+                    $('#postidis').append('<option value="'+i+'">'+i+'</option>');
+                    }
+                  }
+                  
+              }
+           else{
+                    for(i=ans.length;i<5;i++)
+                      {
+                        if(i==ans.length)
+                          {
+                            $('#postidis').append('<option value="'+i+'" selected="selected">'+i+'</option>');
+                          }
+                        else
+                          {
+                            $('#postidis').append('<option value="'+i+'">'+i+'</option>');
+                          }
+                        }
+              }
+       
+        },'json');
+    </script>
     
 
   </head>
@@ -125,7 +158,7 @@ $commento=$_POST['commento'];
 
                       <div id="partenzamsg" class="feature-single">
                         <h1 style="text-transform:none">Da dove parti?</h1>
-                        <select name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;" value="<?php echo  $partenza;?>">
+                        <select id="partenza" name="partenza" class="form-control" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;" value="<?php echo  $partenza;?>">
                                 <option ></option>
                                     <?php
                                     $stm=$dbh->prepare('SELECT * FROM province ORDER BY nome_province');
@@ -134,10 +167,17 @@ $commento=$_POST['commento'];
                                     {
 
                                       while($row= $stm->fetch())
-                                      {
+                                      { 
+                                        if($partenza==$row['nome_province'])
+                                        {
+                                          ?>
+                                          <option value="<?php echo $row['nome_province'] ?>" selected="selected"><?php echo $row['nome_province']?></option>
+                                        <?php
+                                        }
                                         ?>
                                           <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
-                                     <?php }
+                                     <?php
+                                        }
                                     } 
                                     ?>
                               </select>
@@ -167,20 +207,22 @@ $commento=$_POST['commento'];
                                     $stm->execute();
                                      if($stm->rowCount()>0)
                                     {
-
-                                      while($row= $stm->fetch())
-                                      {
+                                       while($row= $stm->fetch())
+                                      { 
+                                        if($arrivo==$row['nome_province'])
+                                        {
+                                          ?>
+                                          <option value="<?php echo $row['nome_province'] ?>" selected="selected"><?php echo $row['nome_province']?></option>
+                                        <?php
+                                        }
                                         ?>
                                           <option value="<?php echo $row['nome_province'] ?>"><?php echo $row['nome_province']?></option>
-                                     <?php }
+                                     <?php
+                                        }
                                     } 
                                     ?>
                               </select>
-                        <script>
-                          $(document).ready(function(){
-                            $('#arrivo').val(<?php echo $arrivo;?>);
-                          });
-                        </script>
+                        
                       </div>
                     </div>
                     <div class="col-md-5 wow fadeInDown text-center" data-wow-delay="0.2s">
@@ -207,7 +249,9 @@ $commento=$_POST['commento'];
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
                     <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
-                      <input type="number" class="form-control" name="passeggeri" value="<?php echo  $posti;?>" style="-webkit-appearance: none;" min="1">
+                       <select id="postidis" class="form-control" name="passeggeri" value="" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
+                        <option></option>
+                      </select>
                     </div>
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
