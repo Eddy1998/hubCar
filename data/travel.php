@@ -6,9 +6,9 @@ date_default_timezone_set("Europe/Rome");
 	include ('conn.inc.php');
 try{
            $dbh = new PDO($conn, $user, $pass);
-       if (isset($_POST['offers'])) 
-        {
-               
+      // if (isset($_POST['offers'])) 
+       // {
+               $_SESSION['user']='9';
                   $jsondataT=array();
 
                   $data=date("Y-m-d");
@@ -33,7 +33,7 @@ try{
                   
                     exit();
                     
-        }
+      //  }
   
        if (isset($_POST['offers_past'])) 
        {

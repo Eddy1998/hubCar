@@ -104,7 +104,8 @@ $id=$_REQUEST['idviaggio'];
 
 
               <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
-                <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                 <div class="col-md-9 wow fadeInDown text-center" data-wow-delay="0.2s">
+                <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
                   
                   <div id="datamsg" class="feature-single">
                     <input type='hidden' name='idViaggio' value="<?php echo $id;?>">
@@ -115,7 +116,7 @@ $id=$_REQUEST['idviaggio'];
                   </div>
                    
                 </div>
-                  <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                  <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
                      <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
 
                     <div class="col-md-7 wow fadeInDown text-center" data-wow-delay="0.2s">
@@ -160,7 +161,7 @@ $id=$_REQUEST['idviaggio'];
                     </div>
                   </div>
                 </div>
-                <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
+                <div class="col-md-4 wow fadeInDown text-center" data-wow-delay="0.2s">
                       <div class="col-md-12 wow fadeInDown text-center feature-single" data-wow-delay="0.2s">
 
                     <div id="numPasseggeri">
@@ -200,22 +201,22 @@ $id=$_REQUEST['idviaggio'];
                 </div>
                 
                  <div class="col-md-12 wow fadeInDown text-center" data-wow-delay="0.2s">
-                <div class="col-md-3 wow fadeInDown">
+                <div class="col-md-4 wow fadeInDown">
                 </div>
-                <div class="col-md-3 wow fadeInDown">
+                <div class="col-md-4 wow fadeInDown">
                   <div class="feature-single">
                     <h1 class="lab" style="text-transform:none;">Commento per i passeggeri</h1>
 
-                    <textarea id="commento" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 200px;background-color: white;" rows="5" cols="10" readonly></textarea>
+                    <textarea id="commento" type="textarea" class="form-control" name="commento" value="" style="-webkit-appearance: none;resize: none;height: 100px;background-color: white;" rows="5" cols="10" readonly></textarea>
 
                   </div>
                 </div>
-                <div class="col-md-3 wow fadeInDown">
+                <div class="col-md-4 wow fadeInDown">
                 </div>
-                 <div class="col-md-3 wow fadeInDown">
-                </div>
+                
 
               </div>
+                </div>
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
                    <div class="feature-single">
                     <h1>Conducente</h1>
@@ -240,8 +241,38 @@ $id=$_REQUEST['idviaggio'];
                
               </div>
               <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
-                word new
-              </div>
+                <table>
+                  
+                  <tr><th><div class="feature-single">
+                    <h1>Conducente</h1>
+                   <div class="feature-single">
+                     <h2 id="auto" > </h2>
+                  </div>
+                       
+                         
+                  </div></th>
+                  <th><div class="feature-single">
+                    <h1>Passeggero</h1>
+                   <div class="feature-single">
+                     <h2 id="auto" > </h2>
+                  </div>
+                       
+                         
+                  </div></th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th></tr>
+                  <tr><td><div class="feature-single">
+                    <h1>Automobile</h1>
+                   <div class="feature-single">
+                     <h2 id="auto" > </h2>
+                  </div>
+                       
+                         
+                  </div></td></tr>
+                </table>
+                
+                 </div>
 
 
               
