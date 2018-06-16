@@ -61,7 +61,7 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
             <ul class="nav navbar-nav">
                <li><a class="page-scroll" href="../index">Home</a></li>
               <li><a class="page-scroll" href="../foundtravel">Cerca Viaggio</a></li>
-              <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
+              <li><a class="page-scroll" href="insertviaggio">Aggiungi viaggio</a></li>
               <li><a class="page-scroll" href="../user/signout">Sign Out</a></li>
              
             </ul>

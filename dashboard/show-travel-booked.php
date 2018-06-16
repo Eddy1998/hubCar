@@ -5,7 +5,7 @@ session_start();
  date_default_timezone_set("Europe/Rome");
 if(!isset($_SESSION['user']))
 {
-  header("location : ../user/signin");
+  header("location: ../user/signin");
 }
 $id=$_POST['idviaggio'];
 ?>

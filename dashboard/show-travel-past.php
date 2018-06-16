@@ -3,10 +3,10 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-/*if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
 {
-  header("location : ../user/signin");
-}*/
+  header("location: ../user/signin");
+}
 $id=$_REQUEST['idviaggio'];
 ?>
   <!DOCTYPE html>

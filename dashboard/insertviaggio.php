@@ -5,7 +5,7 @@ session_start();
  date_default_timezone_set("Europe/Rome");
 if(!isset($_SESSION['user']))
 {
-  header("location : ../user/signin");
+  header("location: ../user/signin");
 }
 ?>
   <!DOCTYPE html>
@@ -266,7 +266,7 @@ if(!isset($_SESSION['user']))
                       <div class='form-group text-center heading-section'>
 
                         <div class='form-group'>
-                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
+                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../dashboard'" class="btn btn-danger btn-action btn-fill">
                         </div>
 
 

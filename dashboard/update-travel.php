@@ -14,6 +14,12 @@ try{
       $oraArrivo=$_POST['oraArrivo'];
       $passeggeri=$_POST['passeggeri'];
       $prezzo=$_POST['costo'];
+      $idViaggio=$_POST['idViaggio'];
+      
+      
+      $postiattuali=$_POST['postiattuali'];
+      $macchina=$_POST['postomacchina'];
+      $posti=$postiattuali-$macchina+$passeggeri;
     if (empty($_POST['commento'])){
       $commento =NULL;
     }
@@ -21,22 +27,24 @@ try{
       $commento=$_POST['commento'];
    }
     $idAutista=$_SESSION['user'];
-   
+   echo $postidisponibili;
      $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("INSERT INTO viaggio (idAutista,data,oraPartenza,oraArrivo,partenza,arrivo,posti,postidisponibili,importo,commento) VALUES(:id,:data,:oraPartenza,:oraArrivo,:partenza,:arrivo,:posti,:posti,:importo,:commento)");
-        $stm->bindValue(":id",$idAutista);
+       $stm=$dbh->prepare("UPDATE viaggio SET data=:data,oraPartenza=:oraPartenza,oraArrivo=:oraArrivo,partenza=:partenza,arrivo=:arrivo,posti=:posti,postidisponibili=:postidisponibili,importo=:importo,commento=:commento WHERE idViaggio=:idViaggio AND idAutista=:idAutista");
+        $stm->bindValue(":idAutista",$idAutista);
+        $stm->bindValue(":idViaggio",$idViaggio);
         $stm->bindValue(":oraPartenza",$oraPartenza);
         $stm->bindValue(":oraArrivo",$oraArrivo);
         $stm->bindValue(":data",$date);
         $stm->bindValue(":partenza",$partenza);
         $stm->bindValue(":arrivo",$arrivo);
-        $stm->bindValue(":posti",$passeggeri);
+        $stm->bindValue(":posti",$posti);
+        $stm->bindValue(":postidisponibili",$passeggeri);
         $stm->bindValue(":importo",$prezzo);
         $stm->bindValue(":commento",$commento);    
        if( $stm->execute())
       {
-          header('location: offers.php?success=1');        
-      }
+          header('location: offers.php?success=1');   
+         }
          else
          {
           header('location: offers.php?err=1');
@@ -45,6 +53,5 @@ try{
    } 
   catch (PDOException $e) {
    header('location: offers.php?err=1');
-    
-  }
+    }
 ?>

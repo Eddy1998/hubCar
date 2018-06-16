@@ -3,10 +3,10 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-/*if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
 {
-  header("location : ../user/signin");
-}*/
+  header("location: ../user/signin");
+}
 $id=$_POST['idViaggio'];
 $dataviaggio=$_POST['data'];
 $partenza=$_POST['partenza'];
@@ -16,7 +16,9 @@ $oarrivo=$_POST['oraArrivo'];
 $posti=$_POST['passeggeri'];
 $costo=$_POST['costo'];
 $commento=$_POST['commento'];
+$postomacchina=$_POST['postomacchina'];
 ?>
+
   <!DOCTYPE html>
   <html lang="en">
 
@@ -59,14 +61,17 @@ $commento=$_POST['commento'];
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/control-insert-viaggio.js"></script>
+    <script type="text/javascript" src="../js/control-update-viaggio.js"></script>
     <script type="text/javascript" >
-         $.post( "../data/travel.php",{'pass_in_travel': 1,'viaggio': <?php echo $id;?>}, function(ans) {
-         
-              if(ans==='not_found'){
+      $('#postomacchina').append(<?php echo json_encode($postomacchina);?>);
+         $.post( "../data/travel.php",{'pass_in_travel': 1,'viaggio':<?php echo json_encode($id);?>}, function(ans) {
+           
+             var posti=<?php echo $posti;?>;
+           if(ans==='not_found'){
+             
                 for(i=1;i<5;i++)
                   {
-                    if(i==1)
+                    if(i==posti)
                       {
                         $('#postidis').append('<option value="'+i+'" selected="selected">'+i+'</option>');
                       }
@@ -78,9 +83,19 @@ $commento=$_POST['commento'];
                   
               }
            else{
-                    for(i=ans.length;i<5;i++)
+            
+                      var postitotali=0;
+                    for(i=0;i<ans.length;i++)
                       {
-                        if(i==ans.length)
+                        postitotali=postitotali+ +ans[i].posti;
+                        
+                      }
+                      var differenza= 4- +postitotali;
+             
+                      $('#postiattuali').val(postitotali);
+                    for(i=0;i<=differenza;i++)
+                      {
+                        if(i==posti)
                           {
                             $('#postidis').append('<option value="'+i+'" selected="selected">'+i+'</option>');
                           }
@@ -110,7 +125,7 @@ $commento=$_POST['commento'];
             <ul class="nav navbar-nav">
               <li><a class="page-scroll" href="../index">Home</a></li>
               <li><a class="page-scroll" href="../foundtravel">Cerca</a></li>
-              <li><a class="page-scroll" href="profile">Profilo</a></li>
+              <li><a class="page-scroll" href="dashboard">Dashboard</a></li>
               <li><a class="page-scroll" href="../user/signout">Sign Out</a></li>
 
             </ul>
@@ -145,7 +160,10 @@ $commento=$_POST['commento'];
               <div class="col-md-12 wow fadeInDown text-center features-left" data-wow-delay="0.2s">
                 <div class="col-md-3 wow fadeInDown text-center" data-wow-delay="0.2s">
                     <div id="datamsg" class="feature-single">
+                      
                       <h1 class="lab" style="text-transform:none">Quando viaggi?</h1>
+                      <input type="hidden" value="" name="postomacchina" id="postomacchina">
+                      <input type="hidden" value="<?php echo $id;?>" name="idViaggio">
                       <input type="hidden" value="<?php echo date("Y-m-d"); ?>" name="oggi">
                       <input id="dataViaggio" type="date" class="form-control" name="dataViaggio" min="<?php echo date("Y-m-d"); ?>" style="-webkit-appearance: none; font-family:sans-serif;" value="<?php echo $dataviaggio ;?>">
 
@@ -250,8 +268,9 @@ $commento=$_POST['commento'];
                     </div>
                     <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
                        <select id="postidis" class="form-control" name="passeggeri" value="" style="font-family: 'Open Sans', sans-serif;background: #F8F8F8; -webkit-appearance: none;">
-                        <option></option>
+                        
                       </select>
+                       <input type="hidden" value="" name="postiattuali" id="postiattuali">
                     </div>
                     <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                     </div>
@@ -300,9 +319,7 @@ $commento=$_POST['commento'];
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
                 </div>
                 <div class="col-md-4 features-left" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown; padding-top:0px;">
-                  <div class="col-md-12 wow fadeInDown text-center" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
-
-
+                 
 
                     <div class='col-md-5' style="padding-top: 32px;float:left;">
                       <div class='form-group text-center'>
@@ -316,7 +333,7 @@ $commento=$_POST['commento'];
                       <div class='form-group text-center heading-section'>
 
                         <div class='form-group'>
-                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='../index'" class="btn btn-danger btn-action btn-fill">
+                          <input id="bottonedanger" type='button' value='Annulla' onClick="window.location.href='offers'" class="btn btn-danger btn-action btn-fill">
                         </div>
 
 
@@ -324,7 +341,6 @@ $commento=$_POST['commento'];
 
                     </div>
 
-                  </div>
                 </div>
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
                 </div>

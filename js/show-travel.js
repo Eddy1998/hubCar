@@ -30,6 +30,7 @@ var idViaggio=document.modulo.idViaggio.value;
        $('#importo').append(prezzo);
        $('#importo2').val(prezzo);
        $('#commento').append(commento);
+       $('#postomacchina').append(response[0].posti)
         for(i=0;i<posti;i++)
           {
             var box= " <div  class='col-md-2 wow fadeInDown text-center' data-wow-delay='0.2s'> <div class='feature-single'> <h1 style='color:#1eb858'>Passeggero</h1><div class='feature-single'> <h2 id='"+i+"' class='nomedelpass'>Vuoto</h2> </div></div></div>";

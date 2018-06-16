@@ -5,7 +5,7 @@ session_start();
  date_default_timezone_set("Europe/Rome");
 if(!isset($_SESSION['user']))
 {
-  header("location : ../user/signin");
+  header("location: ../user/signin");
 }
 $id=$_REQUEST['idviaggio'];
 ?>
@@ -170,7 +170,8 @@ $id=$_REQUEST['idviaggio'];
                       </div>
                       <div class="col-md-8 wow fadeInDown text-center" data-wow-delay="0.2s">
                         <h2 id="passeggeri"></h2>
-                        <input id="passeggeri2" type="hidden" class="form-control" name="passeggeri" value="" min="1">
+                        <input id="passeggeri2" type="hidden" class="form-control" name="passeggeri" value="">
+                        <input id="postomacchina" type="hidden" class="form-control" name="postomacchina" value="" >
                       </div>
                       <div class="col-md-2 wow fadeInDown text-center" data-wow-delay="0.2s">
                       </div>
