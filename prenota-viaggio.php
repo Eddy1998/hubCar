@@ -3,10 +3,7 @@ session_start();
  include 'data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-/*if(!isset($_SESSION['user']))
-{
-  header("location : user/signin");
-}*/
+
 $id=$_REQUEST['idviaggio'];
 ?>
   <!DOCTYPE html>
@@ -73,7 +70,7 @@ $id=$_REQUEST['idviaggio'];
               <li><a class="page-scroll" href="foundtravel">Cerca</a></li>
               <?php if(isset($_SESSION['user']))
                 {?>
-                    <li><a class="page-scroll" href="dashboard/profile">Profilo</a></li>
+                    <li><a class="page-scroll" href="dashboard/dashboard">Dashboard</a></li>
                      <li><a class="page-scroll" href="user/signout">Sign Out</a></li>
                <?php }?>
               
@@ -93,6 +90,7 @@ $id=$_REQUEST['idviaggio'];
           <div class="col-md-12">
             <div class="hero-content text-center">
               <h1 class="wow fadeInUp" data-wow-delay="0.1s" id="dativiaggio"></h1>
+              <p>La prenotazione avviene automaticamente</p>
             </div>
           </div>
         </div>

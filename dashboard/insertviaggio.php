@@ -69,7 +69,7 @@ if(!isset($_SESSION['user']))
             <ul class="nav navbar-nav">
               <li><a class="page-scroll" href="../index">Home</a></li>
               <li><a class="page-scroll" href="../foundtravel">Cerca</a></li>
-              <li><a class="page-scroll" href="profile">Profilo</a></li>
+              <li><a class="page-scroll" href="dashboard">Dashboard</a></li>
               <li><a class="page-scroll" href="../user/signout">Sign Out</a></li>
 
             </ul>

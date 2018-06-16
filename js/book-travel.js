@@ -77,15 +77,24 @@ var idViaggio=document.modulo.idViaggio.value;
          
               if(ans==='not_found'){
               }else{
-                    for(i=0;i<ans.length;i++)
+                         var n=0;
+                    for( i=0;i<ans.length;i++)
                       {
+                        
+                        var numposti=ans[i].posti;
                         var nascita=ans[i].dataNascita;     
                         var arr = nascita.split("/");
                         var aaaa=arr[2];
                         var eta = anno-aaaa;
-                        $('#'+i).empty();
-                        $('#'+i).append(ans[i].nome+", "+eta+" anni");
                         
+                        for(j=0;j<numposti;j++)
+                          {
+                            
+                            
+                        $('#'+n).empty();
+                        $('#'+n).append(ans[i].nome+", "+eta+" anni");
+                        n++;
+                          }
                       }
               }
       

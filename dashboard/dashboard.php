@@ -100,7 +100,8 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
               <h1>
                 Gestisci il tuo Account
               </h1>
-              
+              <div class="col-md-2 features-left">
+              </div>
              
            
             <div class="col-md-4 features-left">
@@ -141,19 +142,8 @@ if(!isset($_SESSION['user'])&&!isset($_SESSION['username']))
                          
                 </div>
             </div>
-              <div class="col-md-4 features-left">
-              <hr>
-              <div class="col-md-12 wow fadeInDown" data-wow-delay="0.4s">
-
-                <h1 >Commenti :</h1>
-                <div class="feature-single">
-                </div>
-
-                <div class="feature-single">
-                 <a href="#" class="btn btn-action wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Feedback</a>
-
-                </div>
-              </div>
+              <div class="col-md-2 features-left">
+              
               
             </div>
 

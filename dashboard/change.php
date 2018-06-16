@@ -83,7 +83,7 @@ header('location: ../index.php');
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="../index.php">Home</a></li>
-                 <li><a class="page-scroll" href="../index.php">Aggiungi un viaggio</a></li>
+                 <li><a class="page-scroll" href="dashboard">Dashboard</a></li>
                  <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
               </ul>
             </div>

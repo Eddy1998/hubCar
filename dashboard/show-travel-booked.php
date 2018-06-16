@@ -51,16 +51,9 @@ $id=$_POST['idviaggio'];
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/show-travel.js"></script>
+    <script type="text/javascript" src="../js/show-travel-booked.js"></script>
     <script type="text/javascript">
-      $('#bottonedanger').click(function(){
-        if (confirm("Annullare la tua prenotazione?")) {
-              {
-               document.modulo.action = "../dashboard/delete-book.php";
-               document.modulo.submit();
-             }
-        }
-      });
+     
     </script>
 
 

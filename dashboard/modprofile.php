@@ -70,15 +70,14 @@ $nazionalita=$_REQUEST['nazionalita'];
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand page-scroll" href="#main"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a>Profilo </div>
+            <a class="navbar-brand page-scroll" href="#main"><img src="../logo/logo.png" width="115" height="30" alt="hubcarimg" /></a></div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
               <li><a class="page-scroll" href="../foundtravel.php">Cerca</a></li>
-              <li><a class="page-scroll" href="#funzione">Aggiungi viaggio</a></li>
-              <li><a class="page-scroll" href="#funzione">Password</a></li>
-              <li><a class="page-scroll" href="#funzione">Automobile</a></li>
+              <li><a class="page-scroll" href="insertviaggio">Aggiungi viaggio</a></li>
+              <li><a class="page-scroll" href="automobile">Automobile</a></li>
               <li><a class="page-scroll" href="../user/signout.php">Sign Out</a></li>
 
             </ul>

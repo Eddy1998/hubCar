@@ -63,12 +63,12 @@ $dbh = new PDO($conn,$user,$pass);
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a class="page-scroll" href="index">Home</a></li>
+                 <li><a class="page-scroll" href="foundtravel">Cerca</a></li>
                 <?php if(isset($_SESSION['user']))
-                  {
-                  ?>  <li> <a class="page-scroll" href="dashboard/profile">Profilo</a></li>
-                     <?php 
-                  }
-               ?>
+                {?>
+                    <li><a class="page-scroll" href="dashboard/dashboard">Dashboard</a></li>
+                     <li><a class="page-scroll" href="user/signout">Sign Out</a></li>
+               <?php }?>
               </ul>
             </div>
           </div>

@@ -89,21 +89,14 @@ var idViaggio=document.modulo.idViaggio.value;
                           }
                       }
               }
-          $('#bottonedanger').click(function(){
-                if(ans!=='not_found')
-                  {
-                    alert("non puoi eliminare un viaggio con prenotazioni avviate");
-                  }
-                  else{ 
-                      if (confirm("Confermi di eliminare il tuo viaggio?")) {
-                          {
-                           document.modulo.action = "../dashboard/delete-travel.php";
-                           document.modulo.submit();
-                         }
-                      } 
-                  }
-
-          });
+           $('#bottonedanger').click(function(){
+              if (confirm("Annullare la tua prenotazione?")) {
+                    {
+                     document.modulo.action = "../dashboard/delete-book.php";
+                     document.modulo.submit();
+                   }
+              }
+            });
         },'json');
        
        },'json');
