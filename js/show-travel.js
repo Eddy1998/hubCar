@@ -1,4 +1,5 @@
 $(document).ready(function(){
+ 
 var idViaggio=document.modulo.idViaggio.value;
     var d = new Date();
     var anno = d.getFullYear();

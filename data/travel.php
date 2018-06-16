@@ -140,10 +140,9 @@ try{
                   $jsondata=array();
 
                   
-                  $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from viaggio v where v.idAutista=:idAutista AND idViaggio=:idViaggio LIMIT 1");
+                  $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from viaggio v where  idViaggio=:idViaggio LIMIT 1");
                 
-                   $sqlu->bindValue(":idAutista", $_SESSION['user']); 
-                    
+                  
                     $sqlu->bindValue(":idViaggio", $vi);
                      $sqlu->execute();
                     if ($sqlu->rowCount()>0)

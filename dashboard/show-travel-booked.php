@@ -7,7 +7,7 @@ session_start();
 {
   header("location : ../user/signin");
 }*/
-$id=$_REQUEST['idviaggio'];
+$id=$_POST['idviaggio'];
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -304,7 +304,7 @@ $id=$_REQUEST['idviaggio'];
     <script type="text/javascript" src="../js/plugins.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
     <script type="text/javascript" src="../js/custom.js"></script>
-    <script src="../js/jquery.subscribe.js"></script>
+  
   </body>
 
   </html>
