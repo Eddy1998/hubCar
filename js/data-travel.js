@@ -33,21 +33,21 @@ $(document).ready(function(){
                       var nascita= anno-aaaa;
                  
                    
-                   if(response[i].posti===1)
+                   if(response[i].postidisponibili==='1')
                      {
-                        posti=response[i].posti+" posto disponibile";
+                        posti=response[i].postidisponibili+" posto disponibile";
                      }
                    else
                      {
-                        posti=response[i].posti+" posti disponibili";
+                        posti=response[i].postidisponibili+" posti disponibili";
                      }
-                           var p=" <form action='prove' method='POST'><div class='col-sm-4' style='float:center;'>";
+                           var p=" <form action='prenota-viaggio' method='POST'><div class='col-sm-4' style='float:center;'>";
                          var s=" <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>";
                             var data="<h2>Data :</h2> <span >"+response[i].dataviaggio+"</span><br>";
                              var viaggio=" <span >"+response[i].partenza+" - "+response[i].oPartenza+"</span><br> <span >"+response[i].arrivo+" - "+response[i].oArrivo+"</span>";
                               var aut=" <h2>Dati Conducente :</h2> <span >"+response[i].nome+", "+nascita+" anni</span><br>";
                              var prex="<span >Prezzo: "+response[i].importo+"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Prenota</button>";
-                              var las="</div> </div></div> </form>";
+                              var las="</div> </div></div><input type='hidden' name='idviaggio' value='"+response[i].idViaggio+"'> </form>";
                    var total=p+s+data+viaggio+aut+prex+las;
                    $('#viaggi').append(total);
                  }
@@ -71,21 +71,21 @@ $(document).ready(function(){
                var posti;
                for(i=0;i<response.length;i++)
                  {
-                   if(response[i].posti===1)
+                   if(response[i].postidisponibili===1)
                      {
-                        posti=response[i].posti+" posto disponibile";
+                        posti=response[i].postidisponibili+" posto disponibile";
                      }
                    else
                      {
-                        posti=response[i].posti+" posti disponibili";
+                        posti=response[i].postidisponibili+" posti disponibili";
                      }
-                           var p=" <form action='prove' method='POST'><div class='col-sm-4' style='float:center;'>";
+                           var p=" <form action='prenota-viaggio' method='POST'><div class='col-sm-4' style='float:center;'>";
                          var s=" <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>";
                             var data="<h2>Data :</h2> <span >"+response[i].dataviaggio+"</span><br>";
                              var viaggio=" <span >"+response[i].partenza+" - "+response[i].oPartenza+"</span><br> <span >"+response[i].arrivo+" - "+response[i].oArrivo+"</span>";
                               var aut=" <h2>Dati Conducente :</h2> <span >"+response[i].nome+", "+response[i].dataNascita+"</span><br>";
                              var prex="<span >Prezzo: "+response[i].importo+"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Prenota</button>";
-                              var las="</div> </div></div> </form>";
+                              var las="</div> </div></div> <input type='hidden' name='idviaggio' value='"+response[i].idViaggio+"'> </form>";
                    var total=p+s+data+viaggio+aut+prex+las;
                    $('#viaggi').append(total);
                  }
@@ -111,21 +111,21 @@ $(document).ready(function(){
                var posti;
                for(i=0;i<response.length;i++)
                  {
-                   if(response[i].posti===1)
+                   if(response[i].postidisponibili===1)
                      {
-                        posti=response[i].posti+" posto disponibile";
+                        posti=response[i].postidisponibili+" posto disponibile";
                      }
                    else
                      {
-                        posti=response[i].posti+" posti disponibili";
+                        posti=response[i].postidisponibili+" posti disponibili";
                      }
-                           var p=" <form action='prove' method='POST'><div class='col-sm-4' style='float:center;'>";
+                           var p=" <form action='prenota-viaggio' method='POST'><div class='col-sm-4' style='float:center;'>";
                          var s=" <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>";
                             var data="<h2>Data :</h2> <span >"+response[i].dataviaggio+"</span><br>";
                              var viaggio=" <span >"+response[i].partenza+" - "+response[i].oPartenza+"</span><br> <span >"+response[i].arrivo+" - "+response[i].oArrivo+"</span>";
                               var aut=" <h2>Dati Conducente :</h2> <span >"+response[i].nome+", "+response[i].dataNascita+"</span><br>";
                              var prex="<span >Prezzo: "+response[i].importo+"€</span><br> <span>"+posti+"</span><br> <button class='btn btn-primary btn-action btn-fill prenotazione' type='submit'>Prenota</button>";
-                              var las="</div> </div></div> </form>";
+                              var las="</div> </div></div><input type='hidden' name='idviaggio' value='"+response[i].idViaggio+"'>  </form>";
                    var total=p+s+data+viaggio+aut+prex+las;
                    $('#viaggi').append(total);
                  }

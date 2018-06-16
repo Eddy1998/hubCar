@@ -4,7 +4,7 @@ var idViaggio=document.modulo.idViaggio.value;
     var d = new Date();
     var anno = d.getFullYear();
 
-     $.post( "../data/travel.php",{'travel_data': 1,'idViaggio': idViaggio}, function(response) {
+     $.post( "data/travel.php",{'travel_data': 1,'idViaggio': idViaggio}, function(response) {
        
       var data= response[0].dataviaggio;
       var partenza =response[0].partenza;
@@ -30,13 +30,20 @@ var idViaggio=document.modulo.idViaggio.value;
        $('#importo').append(prezzo);
        $('#importo2').val(prezzo);
        $('#commento').append(commento);
+       $('#dativiaggio').append("Da "+partenza+"<br> a "+arrivo);
+        for(i=1;i<=disponibili;i++)
+          {
+            
+                $('#posti').append('<option value="'+i+'">'+i+'</option>');
+             
+          }
         for(i=0;i<posti;i++)
           {
             var box= " <div  class='col-md-2 wow fadeInDown text-center' data-wow-delay='0.2s'> <div class='feature-single'> <h1 style='color:#1eb858'>Passeggero</h1><div class='feature-single'> <h2 id='"+i+"' class='nomedelpass'>Vuoto</h2> </div></div></div>";
             $('#compagni').append(box);
           }
        var idDriver= response[0].idAutista;
-        $.post( "../data/data-driver.php",{'data_driver': 1,'idDriver': idDriver}, function(risposta) {
+        $.post( "data/data-driver.php",{'data_driver': 1,'idDriver': idDriver}, function(risposta) {
                
                   var nome =risposta.user.nome;
                   var nascita=risposta.user.dataNascita;
@@ -45,6 +52,7 @@ var idViaggio=document.modulo.idViaggio.value;
                  var arr = nascita.split("/");
                     var aaaa=arr[2];
                     var eta = anno-aaaa;
+                   
                    if(risposta.user.automobile==='no')
                     {
                       automobile="Nessun automobile registrato"
@@ -65,50 +73,22 @@ var idViaggio=document.modulo.idViaggio.value;
           $('#dataregistrazione').append(datareg);
           
         },'json');
-        $.post( "../data/travel.php",{'pass_in_travel': 1,'viaggio': idViaggio}, function(ans) {
+        $.post( "data/travel.php",{'pass_in_travel': 1,'viaggio': idViaggio}, function(ans) {
          
               if(ans==='not_found'){
               }else{
                     for(i=0;i<ans.length;i++)
                       {
-                        if(ans[i].posti>1)
-                          {
-                            var num=ans[i].posti;
-                            for(j=0;j<num;j++)
-                              {
-                                var nascita=ans[j].dataNascita;     
-                                var arr = nascita.split("/");
-                                var aaaa=arr[2];
-                                var eta = anno-aaaa;
-                                $('#'+j).empty();
-                                $('#'+j).append(ans[j].nome+", "+eta+" anni");
-                              }
-                          }
-                        else{
-                        var nato=ans[i].dataNascita;     
-                        var array = nato.split("/");
-                        var an=array[2];
-                        var edad = anno-an;
+                        var nascita=ans[i].dataNascita;     
+                        var arr = nascita.split("/");
+                        var aaaa=arr[2];
+                        var eta = anno-aaaa;
                         $('#'+i).empty();
-                        $('#'+i).append(ans[i].nome+", "+edad+" anni");
-                        }
+                        $('#'+i).append(ans[i].nome+", "+eta+" anni");
+                        
                       }
               }
-          $('#bottonedanger').click(function(){
-                if(ans!=='not_found')
-                  {
-                    alert("non puoi eliminare un viaggio con prenotazioni avviate");
-                  }
-                  else{ 
-                      if (confirm("Confermi di eliminare il tuo viaggio?")) {
-                          {
-                           document.modulo.action = "../dashboard/delete-travel.php";
-                           document.modulo.submit();
-                         }
-                      } 
-                  }
-
-          });
+      
         },'json');
        
        },'json');

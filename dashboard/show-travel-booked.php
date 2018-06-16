@@ -3,10 +3,10 @@ session_start();
  include '../data/conn.inc.php';
   $dbh = new PDO($conn, $user, $pass);
  date_default_timezone_set("Europe/Rome");
-/*if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']))
 {
   header("location : ../user/signin");
-}*/
+}
 $id=$_POST['idviaggio'];
 ?>
   <!DOCTYPE html>
@@ -52,7 +52,16 @@ $id=$_POST['idviaggio'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/show-travel.js"></script>
-    
+    <script type="text/javascript">
+      $('#bottonedanger').click(function(){
+        if (confirm("Annullare la tua prenotazione?")) {
+              {
+               document.modulo.action = "../dashboard/delete-book.php";
+               document.modulo.submit();
+             }
+        }
+      });
+    </script>
 
 
 

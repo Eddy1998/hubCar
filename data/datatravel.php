@@ -10,7 +10,7 @@ try{
           //$arrivoT='Pisa';
                  // $partenzaT= 'Fireasze';
                   $jsondataT=array();
-                  $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.partenza=:partenza AND v.arrivo=:arrivo ORDER BY  v.data, v.oraPartenza ASC;");
+                  $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.partenza=:partenza AND v.arrivo=:arrivo AND v.postidisponibili>0 ORDER BY  v.data, v.oraPartenza ASC;");
                   $sqlu->bindValue(":arrivo", $arrivoT);
                     $sqlu->bindValue(":partenza", $partenzaT);
                      $sqlu->execute();
@@ -35,7 +35,7 @@ try{
               //$arrivoA='Pisa';
 
               $jsondata=array();
-              $sqld =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.arrivo=:arrivo ORDER BY  v.data, v.oraPartenza ASC;");
+              $sqld =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.arrivo=:arrivo AND v.postidisponibili>0 ORDER BY  v.data, v.oraPartenza ASC;");
               $sqld->bindValue(":arrivo", $arrivoA);
                  $sqld->execute();
                 if ($sqld->rowCount()>0)
@@ -59,7 +59,7 @@ try{
          // $partenzaP='Pisa';
 
                   $jsondata=array();
-                  $sql =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.partenza=:partenza ORDER BY  v.data, v.oraPartenza ASC;");
+                  $sql =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo,  u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita , u.patente FROM viaggio v inner join utente u on u.idUtente=v.idAutista WHERE v.partenza=:partenza AND v.postidisponibili>0 ORDER BY  v.data, v.oraPartenza ASC;");
                   $sql->bindValue(":partenza", $partenzaP);
                      $sql->execute();
                     if ($sql->rowCount()>0)

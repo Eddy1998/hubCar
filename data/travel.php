@@ -65,7 +65,7 @@ try{
                   $vi=$_POST['viaggio'];
                    
                   $jsondata=array();
-                  $sql =$dbh->prepare("SELECT u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita  FROM utente u inner join prenotazione p on u.idUtente=p.idUtente inner join viaggio v on v.idViaggio=p.idViaggio  WHERE v.idViaggio=:idViaggio");
+                  $sql =$dbh->prepare("SELECT p.posti, u.idUtente, u.cognome, u.nome, u.email, u.sesso, u.nazionalita, u.telefono,u.dataNascita  FROM utente u inner join prenotazione p on u.idUtente=p.idUtente inner join viaggio v on v.idViaggio=p.idViaggio  WHERE v.idViaggio=:idViaggio");
                   $sql->bindValue(":idViaggio", $vi);
                      $sql->execute();
                     if ($sql->rowCount()>0)

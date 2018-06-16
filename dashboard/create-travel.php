@@ -23,7 +23,7 @@ try{
     $idAutista=$_SESSION['user'];
    
      $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("INSERT INTO viaggio (idAutista,data,oraPartenza,oraArrivo,partenza,arrivo,posti,importo,commento) VALUES(:id,:data,:oraPartenza,:oraArrivo,:partenza,:arrivo,:posti,:importo,:commento)");
+       $stm=$dbh->prepare("INSERT INTO viaggio (idAutista,data,oraPartenza,oraArrivo,partenza,arrivo,posti,disponibili,importo,commento) VALUES(:id,:data,:oraPartenza,:oraArrivo,:partenza,:arrivo,:posti,:posti,:importo,:commento)");
         $stm->bindValue(":id",$idAutista);
         $stm->bindValue(":oraPartenza",$oraPartenza);
         $stm->bindValue(":oraArrivo",$oraArrivo);

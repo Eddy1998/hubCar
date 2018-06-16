@@ -20,13 +20,13 @@ $(document).ready(function(){
                var posti;
                for(i=0;i<response.length;i++)
                  {
-                   if(response[i].posti===1)
+                   if(response[i].postidisponibili==='1')
                      {
-                        posti=response[i].posti+" posto disponibile";
+                        posti=response[i].postidisponibili+" posto disponibile";
                      }
                    else
                      {
-                        posti=response[i].posti+" posti disponibili";
+                        posti=response[i].postidisponibili+" posti disponibili";
                      }
                           var p="<form action='show-travel-past' method='POST'><div style='float:center;'>";
                          var s=" <div class='table-right wow fadeInUp' data-wow-delay='0.4s'><div class='pricing-details'>";
