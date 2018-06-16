@@ -42,8 +42,6 @@ try{
 
                   $data=date("Y-m-d");
                   $sqlu =$dbh->prepare("SELECT *, DATE_FORMAT(data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT(oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( oraArrivo,  '%H:%i' ) AS oArrivo from viaggio where idAutista=:idAutista AND data<:data  ORDER BY data, oraPartenza DESC");
-                 // $sqlu->bindValue(":arrivo", $arrivoT);
-                  //  $sqlu->bindValue(":partenza", $partenzaT);
                    $sqlu->bindValue(":idAutista", $_SESSION['user']); 
                     $sqlu->bindValue(":data", $data);
                      $sqlu->execute();
@@ -53,8 +51,8 @@ try{
                         {   
 
                             $jsondataT[]=$row;
-                             echo json_encode($jsondataT);
                         }                         
+                             echo json_encode($jsondataT);
                     }
                    else
                    {  
@@ -85,11 +83,11 @@ try{
                      }
                       exit();
         }
-       if (isset($_POST['book'])) {
+      if (isset($_POST['book'])) {
                     
                      
                        $data=date("Y-m-d");
-
+                      
                       $jsondata=array();
                       $sql =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d/%m/%Y' ) AS dataviaggio, TIME_FORMAT( v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from utente u inner join prenotazione p on p.idUtente=u.idUtente inner join viaggio v on v.idViaggio=p.idViaggio WHERE u.idUtente=:id AND v.data>:data  ORDER BY data, oraPartenza ASC");
                       $sql->bindValue(":id", $_SESSION['user']);
@@ -141,7 +139,7 @@ try{
 
                   $jsondata=array();
 
-                  $data=date("Y-m-d");
+                  
                   $sqlu =$dbh->prepare("SELECT v.*,DATE_FORMAT(v.data,  '%d-%m-%Y' ) AS dataviaggio, TIME_FORMAT(v.oraPartenza,  '%H:%i' ) AS oPartenza,TIME_FORMAT( v.oraArrivo,  '%H:%i' ) AS oArrivo from viaggio v where v.idAutista=:idAutista AND idViaggio=:idViaggio LIMIT 1");
                 
                    $sqlu->bindValue(":idAutista", $_SESSION['user']); 

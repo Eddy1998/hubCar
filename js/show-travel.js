@@ -2,8 +2,9 @@ $(document).ready(function(){
 var idViaggio=document.modulo.idViaggio.value;
     var d = new Date();
     var anno = d.getFullYear();
+
      $.post( "../data/travel.php",{'travel_data': 1,'idViaggio': idViaggio}, function(response) {
-      
+       
       var data= response[0].dataviaggio;
       var partenza =response[0].partenza;
       var oraPartenza= response[0].oPartenza;

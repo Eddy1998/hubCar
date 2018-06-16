@@ -261,19 +261,18 @@ $id=$_REQUEST['idviaggio'];
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
                 </div>
                 <div class="col-md-4 features-left" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown; padding-top:0px;">
-                  <div class='col-md-5' style="padding-top: 32px;float:left;">
-                    <div class='form-group text-center'>
-                      <input type='submit' value='Modifica' class="btn btn-primary btn-action btn-fill" name="Modifica">
-                    </div>
+                  <div class='col-md-4' style="padding-top: 32px;float:left;">
+                    
                   </div>
-                  <div class='col-md-2'>
-                  </div>
-                  <div class='col-md-5' style="padding-top: 32px;float:right;">
+                  <div class='col-md-4' style="padding-top: 32px;">
                     <div class='form-group text-center heading-section'>
                       <div class='form-group'>
-                        <input id="bottonedanger" type='button' value='Elimina'  class="btn btn-danger btn-action btn-fill">
+                        <input id="bottonedanger" type='button' value='Annulla prenotazione'  class="btn btn-danger btn-action btn-fill">
                       </div>
                     </div>
+                  </div>
+                  <div class='col-md-4' >
+                    
                   </div>
                 </div>
                 <div class="col-md-4 wow fadeInDown" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInDown;">
