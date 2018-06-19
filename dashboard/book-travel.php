@@ -11,28 +11,37 @@ try{
   $posti=$_POST['posti'];
    
      $dbh = new PDO($conn,$user,$pass);
-       $stm=$dbh->prepare("INSERT INTO prenotazione (idUtente,idViaggio,posti) VALUES(:id,:idViaggio,:posti)");
-        $stm->bindValue(":id",$idUtente);
-        $stm->bindValue(":idViaggio",$idViaggio);
-        $stm->bindValue(":posti",$posti);
-        
-    
-       if( $stm->execute())
-      {
-         $sql=$dbh->prepare("SELECT postidisponibili from viaggio WHERE idViaggio=:idViaggio");          
+     
+      $sql=$dbh->prepare("SELECT postidisponibili from viaggio WHERE idViaggio=:idViaggio");          
         $sql->bindValue(":idViaggio",$idViaggio);
         if($sql->execute())
         {
           $row=$sql->fetch();
-          
+           if($row['postidisponibili']=='0'){
+            header('location: book?err=1');
+          }
+          else
+          {
           $nuovo=$row['postidisponibili']-$posti;
          
           $query=$dbh->prepare("UPDATE viaggio SET postidisponibili=:nuovo WHERE idViaggio=:idViaggio");          
           $query->bindValue(":nuovo",$nuovo);
            $query->bindValue(":idViaggio",$idViaggio);
-          if($query->execute())
+     
+      
+        
+    
+       if( $query->execute())
+      {
+           $stm=$dbh->prepare("INSERT INTO prenotazione (idUtente,idViaggio,posti) VALUES(:id,:idViaggio,:posti)");
+        $stm->bindValue(":id",$idUtente);
+        $stm->bindValue(":idViaggio",$idViaggio);
+        $stm->bindValue(":posti",$posti);
+        
+          if($stm->execute())
           {
             header('location: book?success=1');
+          }
           }
         }
       }
